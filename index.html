@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proyecto integrador</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+
+
+
+<script>
+    window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+    	animationEnabled: true,
+    	theme: "light2",
+    	title:{
+    		text: "Site Traffic"
+    	},
+    	axisX:{
+    		valueFormatString: "DD MMM",
+    		crosshair: {
+    			enabled: true,
+    			snapToDataPoint: true
+    		}
+    	},
+    	axisY: {
+    		title: "Sensores",
+    		crosshair: {
+    			enabled: true
+    		}
+    	},
+    	toolTip:{
+    		shared:true
+    	},
+    	legend:{
+    		cursor:"pointer",
+    		verticalAlign: "bottom",
+    		horizontalAlign: "left",
+    		dockInsidePlotArea: true,
+    		itemclick: toogleDataSeries
+    	},
+    	data: [{
+        //_________________________________________________UNA___________________________________________________________________
+    		type: "line",
+    		showInLegend: true,
+    		name: "Total Visit",
+    		markerType: "square",
+    		xValueFormatString: "DD MMM, YYYY",
+    		color: "#F5B041",
+    		dataPoints: [
+    			{ x: new Date(2017, 0, 3), y: 650 },
+    			{ x: new Date(2017, 0, 4), y: 700 },
+    			{ x: new Date(2017, 0, 5), y: 710 },
+    			{ x: new Date(2017, 0, 6), y: 658 },
+    			{ x: new Date(2017, 0, 7), y: 734 },
+    			{ x: new Date(2017, 0, 8), y: 963 },
+    			{ x: new Date(2017, 0, 9), y: 847 },
+    			{ x: new Date(2017, 0, 10), y: 853 },
+    			{ x: new Date(2017, 0, 11), y: 869 },
+    			{ x: new Date(2017, 0, 12), y: 943 },
+    			{ x: new Date(2017, 0, 13), y: 970 },
+    			{ x: new Date(2017, 0, 14), y: 869 },
+    			{ x: new Date(2017, 0, 15), y: 890 },
+    			{ x: new Date(2017, 0, 16), y: 930 }
+    		]
+    	},
+    	{
+        //_________________________________________________DOS___________________________________________________________________
+        type: "line",
+    		showInLegend: true,
+    		name: "Total Visit",
+    		markerType: "square",
+    		xValueFormatString: "DD MMM, YYYY",
+        color:"#85C1E9",
+    		dataPoints: [
+    			{ x: new Date(2017, 0, 3), y: 510 },
+    			{ x: new Date(2017, 0, 4), y: 560 },
+    			{ x: new Date(2017, 0, 5), y: 540 },
+    			{ x: new Date(2017, 0, 6), y: 558 },
+    			{ x: new Date(2017, 0, 7), y: 544 },
+    			{ x: new Date(2017, 0, 8), y: 693 },
+    			{ x: new Date(2017, 0, 9), y: 657 },
+    			{ x: new Date(2017, 0, 10), y: 663 },
+    			{ x: new Date(2017, 0, 11), y: 639 },
+    			{ x: new Date(2017, 0, 12), y: 673 },
+    			{ x: new Date(2017, 0, 13), y: 660 },
+    			{ x: new Date(2017, 0, 14), y: 562 },
+    			{ x: new Date(2017, 0, 15), y: 643 },
+    			{ x: new Date(2017, 0, 16), y: 570 }
+    		]
+    	},
+      {
+        //_________________________________________________tres___________________________________________________________________
+        type: "line",
+    		showInLegend: true,
+    		name: "Total Visit",
+    		markerType: "square",
+    		xValueFormatString: "DD MMM, YYYY",
+        color:"#BB8FCE",
+    		dataPoints: [
+    			{ x: new Date(2017, 0, 3), y: 400 },
+    			{ x: new Date(2017, 0, 4), y: 400 },
+    			{ x: new Date(2017, 0, 5), y: 400 },
+    			{ x: new Date(2017, 0, 6), y: 400 },
+    			{ x: new Date(2017, 0, 7), y: 400 },
+    			{ x: new Date(2017, 0, 8), y: 400 },
+    			{ x: new Date(2017, 0, 9), y: 400 },
+    			{ x: new Date(2017, 0, 10), y: 400 },
+    			{ x: new Date(2017, 0, 11), y: 400 },
+    			{ x: new Date(2017, 0, 12), y: 400 },
+    			{ x: new Date(2017, 0, 13), y: 400 },
+    			{ x: new Date(2017, 0, 14), y: 400 },
+    			{ x: new Date(2017, 0, 15), y: 400 },
+    			{ x: new Date(2017, 0, 16), y: 400 }
+    		]
+    	},
+      {
+        type: "line",
+    		showInLegend: true,
+    		name: "Total Visit",
+    		markerType: "square",
+    		xValueFormatString: "DD MMM, YYYY",
+        color:"#ABEBC6",
+        dataPoints: [
+          { x: new Date(2017, 0, 3), y: 300 },
+          { x: new Date(2017, 0, 4), y: 300 },
+          { x: new Date(2017, 0, 5), y: 400 },
+          { x: new Date(2017, 0, 6), y: 300 },
+          { x: new Date(2017, 0, 7), y: 300 },
+          { x: new Date(2017, 0, 8), y: 300 },
+          { x: new Date(2017, 0, 9), y: 300 },
+          { x: new Date(2017, 0, 10), y: 300 },
+          { x: new Date(2017, 0, 11), y: 300 },
+          { x: new Date(2017, 0, 12), y: 300 },
+          { x: new Date(2017, 0, 13), y: 300 },
+          { x: new Date(2017, 0, 14), y: 300 },
+          { x: new Date(2017, 0, 15), y: 300 },
+          { x: new Date(2017, 0, 16), y: 300 }
+        ]
+      }]
+    });
+chart.render();
+
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+<section class="back">
+  </head>
+  <body style="background-color:#cccccc">
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Equipillo</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Inicio</a></li>
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="sigin.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="loggin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+<main>
+<!--_________________________________________________UNA___________________________________________________________________-->
+
+
+  <section>
+    <div class="row">
+      <div class="col-md-2" >
+      </div>
+
+      <div class="col-md-8">
+        <h1>TEMPERATURA</h1>
+      </div>
+
+      <div class="col-md-2" >
+      </div>
+    </div>
+  </section>
+
+  <section class=temperatura>
+    <div class="row" >
+      <div class="col-md-2" >
+      </div>
+
+      <div class="col-md-6" >
+        <div class="thumbnail">
+          <a href="4.jpg">
+            <div class="caption">
+            <h3 style="color:black">Noticia 1</h3>
+          </a>
+          </div>
+          <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
+          <button type="button" class="btn btn-info">Leer mas</button>
+        </div>
+      </div>
+
+      <div class="col-md-2" style="background-color: #2C3E50; " >
+        <div class="thumbnail">
+          <a href="4.jpg">
+            <div class="caption">
+            <h3>Noticia 1</h3>
+          </a>
+          </div>
+          <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </h5>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+      </div>
+    </div>
+  </section>
+
+</section>
+<!--_________________________________________________DOS___________________________________________________________________-->
+<section>
+  <div class="row">
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-8" >
+      <h1>HUMEDAD</h1>
+    </div>
+
+    <div class="col-md-2" >
+    </div>
+  </div>
+</section>
+
+<section class=humedad>
+  <div class="row" >
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-6" >
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3 style="color:black">Noticia 1</h3>
+        </a>
+        </div>
+        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
+        <button type="button" class="btn btn-info">Leer mas</button>
+      </div>
+    </div>
+
+    <div class="col-md-2" style="background-color: #2C3E50; " >
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3>Noticia 1</h3>
+        </a>
+        </div>
+        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </h5>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+  </div>
+</section>
+<!--_________________________________________________TRES___________________________________________________________________-->
+<section >
+  <div class="row">
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-8" >
+      <h1>TURBIDEZ</h1>
+    </div>
+
+    <div class="col-md-2" >
+    </div>
+  </div>
+</section>
+
+<section class="turbidez">
+  <div class="row" >
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-6" >
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3 style="color:black">Noticia 1</h3>
+        </a>
+        </div>
+        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
+        <button type="button" class="btn btn-info">Leer mas</button>
+      </div>
+    </div>
+
+    <div class="col-md-2" style="background-color: #808B96   ;">
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3>Noticia 1</h3>
+        </a>
+        </div>
+        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  </h5>
+        <button type="button" class="btn btn-info">Leer mas</button>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+  </div>
+</section>
+<!--_________________________________________________CUATRO___________________________________________________________________-->
+<section >
+  <div class="row">
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-8" >
+      <h1>PROFUNDIDAD</h1>
+    </div>
+
+    <div class="col-md-2" >
+    </div>
+  </div>
+</section>
+
+<section class="profundidad">
+  <div class="row" >
+    <div class="col-md-2" >
+    </div>
+
+    <div class="col-md-6" >
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3 style="color:black">Noticia 1</h3>
+        </a>
+        </div>
+        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
+        <button type="button" class="btn btn-info">Leer mas</button>
+      </div>
+    </div>
+
+    <div class="col-md-2" style="background-color: #ABB2B9   ;">
+      <div class="thumbnail">
+        <a href="4.jpg">
+          <div class="caption">
+          <h3>Noticia 1</h3>
+        </a>
+        </div>
+        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  </h5>
+        <button type="button" class="btn btn-info">Leer mas</button>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+  </div>
+</section>
+<div id="chartContainer" style="height: 370px; width: 69%;padding-left:6cm"></div>
+
+
+
+</main>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+</html>

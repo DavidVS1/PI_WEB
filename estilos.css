@@ -1,0 +1,110 @@
+body{
+  background-color: red;
+}
+section div.row div{
+  padding: 10px
+}
+section.back {
+  background-image: url("back.jpg");
+  background-color: #cccccc;
+}
+
+section.temperatura div.col-md-6 div{
+  background-image: url("1.gif");
+  color:black;
+  background-color: #7F8C8D;
+}
+section.humedad div.row div.col-md-6 div{
+  color:black;
+  background-color: #95A5A6 ;
+}
+section.turbidez div.col-md-6 div{
+
+  background-color: #BDC3C7;
+}
+section.profundidad div.col-md-6 div{
+
+  background-color: #ECF0F1;
+}
+/*_________________________________________________________________Loggin____________________________________________________________*/
+@CHARSET "UTF-8";
+/*
+over-ride "Weak" message, show font in dark grey
+*/
+
+.progress-bar {
+    color: #333;
+}
+
+/*
+Reference:
+http://www.bootstrapzen.com/item/135/simple-login-form-logo/
+*/
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	outline: none;
+}
+
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+body {
+	background: url(http://wallpapers55.com/wp-content/uploads/2013/11/Nature-Desktop-Wallpaper-HD.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.login-form {
+	margin-top: 60px;
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+	form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+	}
+	form[role=login] input,
+	form[role=login] button {
+		font-size: 18px;
+		margin: 16px 0;
+	}
+	form[role=login] > div {
+		text-align: center;
+	}
+
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+	.form-links a {
+		color: #fff;
+	}
+
+	.shadow {
+	-moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
+	-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
+	box-shadow: 5px 5px 5px rgba(68,68,68,0.5);
+}

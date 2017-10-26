@@ -10,21 +10,21 @@ section.back {
 }
 
 section.temperatura div.col-md-6 div{
-  background-image: url("1.gif");
+
   color:black;
-  background-color: #7F8C8D;
+  background-color: white;
 }
 section.humedad div.row div.col-md-6 div{
   color:black;
-  background-color: #95A5A6 ;
+  background-color: white ;
 }
 section.turbidez div.col-md-6 div{
 
-  background-color: #BDC3C7;
+  background-color: white;
 }
 section.profundidad div.col-md-6 div{
 
-  background-color: #ECF0F1;
+  background-color: white;
 }
 /*_________________________________________________________________Loggin____________________________________________________________*/
 @CHARSET "UTF-8";

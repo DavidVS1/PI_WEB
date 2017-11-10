@@ -1,13 +1,21 @@
 body{
-  background-color: red;
-}
-section div.row div{
-  padding: 10px
-}
-section.back {
-  background-image: url("back.jpg");
+  background-image: url("/Users/David/Desktop/PI_WEB/css/back.jpg");
   background-color: #cccccc;
+  background-attachment: fixed;
+  overflow: scroll;
 }
+main{
+  padding-top: 100px;
+}
+
+header {
+  background: rgba(0,0,0,0.9);
+  padding-bottom: : 1000px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
 
 section.temperatura div.col-md-6 div{
 

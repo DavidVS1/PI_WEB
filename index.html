@@ -1,399 +1,120 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proyecto integrador</title>
-    <link rel="stylesheet" href="/Users/David/Desktop/PI_WEB/css/estilos.css">
-    <link rel="stylesheet" href="css/weather-icons.css">
-    <link rel="stylesheet" href="css/weather-icons-wind.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+	<head>
+		<title>S.M.I.P.</title>
+		<meta charset="es" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+		
+				<header id="header" class="alt">
+					<h1><p><a href="index.html">S.M.I.P</p></a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">INICIO</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Sistemas</a>
+								<ul>
+							        <li><a href="pagina2.html">Sistemas de monitoreo</a></li>
+								</ul>
+							</li>
+							<li><a href="monitoreo/loggin.html" class="button">REGISTRATE</a></li>
+						</ul>
+					</nav>
+				</header>
+		
+				<section id="banner">
+					<h2>Bienvenidos</h2>
+					<p>Empresa creada para facilitar tu trabajo y tu vida.</p>
+					<ul class="actions">
+						<li><a href="monitoreo/loggin.html" class="button special">Conectate</a></li>
+						<li><a href="generic.html" class="button">Aprende mas</a></li>
+					</ul>
+				</section>
+			
+				<section id="main" class="container">
 
+					<section class="box special">
+						<header class="major">
+							<h2>Conoce la nueva manera de regar tus tierras.
+							<br />
+							La era de la tecnologia esta aqui, tu decides si quieres que te ayude o seguir trabajando a la "vieja escuela"</h2>
+							
+						</header>
+						<span class="image featured"><img src="http://images.prensa.com/economia/extrabajadores-Coosemupar-reactivar-siembra-Baru_LPRIMA20150416_0046_24.jpg" alt="" /></span>
+					</section>
 
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-bolt accent2"></span>
+								<h3>Conoce nuestros trabajos</h3>
+								<p>Te mostramos cuantas personas ya estan disfrutando de nuestros trabajos, asi como sus comentarios.</p>
+							</section>
+							<section>
+								<span class="icon major fa-area-chart accent3"></span>
+								<h3>Ventajas</h3>
+								<p>Ademas de todos los beneficios que puede aportar el automatizar un sistema de riego, ya sea en lo economico, tanto como en lo estético para tu sembradio, la comodidad que tendras, jutno con la satisfaccion de saber que siempre se esta monitoreando tu tierra, para asi, nunca tener problemas con respecto al tiempo de riego que requiere tu siembra.</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-cloud accent4"></span>
+								<h3>Administracion de informacion.</h3>
+								<p>Toda la informacion que es recaudada y mostrada a nuestro cliente tiene un espacio en la nube, lo cual hace que en cualquier lugar del mundo a cualquier hora, puedas supervisar como va el riego de tu sembradio, solo necesitas una simple conexion a internet, asi ahorras miles de horas, teniendo que ir fisicamente a revisar por ti mismo, que todo este funcionando como tu lo esperas.</p>
+							</section>
+							<section>
+								<span class="icon major fa-lock accent5"></span>
+								<h3>Seguridad</h3>
+								<p>Cada dato de tu cuenta, esta estrictamente protegido, solo tu podras verlo, asi nadie externo a ti sabra lo que estas haciendo con tu sistema de riego.</p>
+							</section>
+						</div>
+					</section>
 
-<script>
-    window.onload = function () {
+					<div class="row">
+						<div class="6u 12u(narrower)">
 
-    var chart = new CanvasJS.Chart("chartContainer", {
-    	animationEnabled: true,
-    	theme: "light2",
-    	title:{
-    		text: "Sensores"
-    	},
-    	axisX:{
-    		valueFormatString: "DD MMM",
-    		crosshair: {
-    			enabled: true,
-    			snapToDataPoint: true
-    		}
-    	},
-    	axisY: {
-    		title: "Sensores",
-    		crosshair: {
-    			enabled: true
-    		}
-    	},
-    	toolTip:{
-    		shared:true
-    	},
-    	legend:{
-    		cursor:"pointer",
-    		verticalAlign: "bottom",
-    		horizontalAlign: "left",
-    		dockInsidePlotArea: true,
-    		itemclick: toogleDataSeries
-    	},
-    	data: [{
-        //_________________________________________________UNA___________________________________________________________________
-    		type: "line",
-    		showInLegend: true,
-    		name: "Grados C",
-    		markerType: "square",
-    		xValueFormatString: "DD MMM, YYYY",
-    		color: "#F5B041",
-    		dataPoints: [
-    			{ x: new Date(2017, 0, 3), y: 650 },
-    			{ x: new Date(2017, 0, 4), y: 700 },
-    			{ x: new Date(2017, 0, 5), y: 710 },
-    			{ x: new Date(2017, 0, 6), y: 658 },
-    			{ x: new Date(2017, 0, 7), y: 734 },
-    			{ x: new Date(2017, 0, 8), y: 963 },
-    			{ x: new Date(2017, 0, 9), y: 847 },
-    			{ x: new Date(2017, 0, 10), y: 853 },
-    			{ x: new Date(2017, 0, 11), y: 869 },
-    			{ x: new Date(2017, 0, 12), y: 943 },
-    			{ x: new Date(2017, 0, 13), y: 970 },
-    			{ x: new Date(2017, 0, 14), y: 869 },
-    			{ x: new Date(2017, 0, 15), y: 890 },
-    			{ x: new Date(2017, 0, 16), y: 930 }
-    		]
-    	},
-    	{
-        //_________________________________________________DOS___________________________________________________________________
-        type: "line",
-    		showInLegend: true,
-    		name: "Porcentaje de Hidrogeno",
-    		markerType: "square",
-    		xValueFormatString: "DD MMM, YYYY",
-        color:"#85C1E9",
-    		dataPoints: [
-    			{ x: new Date(2017, 0, 3), y: 510 },
-    			{ x: new Date(2017, 0, 4), y: 560 },
-    			{ x: new Date(2017, 0, 5), y: 540 },
-    			{ x: new Date(2017, 0, 6), y: 558 },
-    			{ x: new Date(2017, 0, 7), y: 544 },
-    			{ x: new Date(2017, 0, 8), y: 693 },
-    			{ x: new Date(2017, 0, 9), y: 657 },
-    			{ x: new Date(2017, 0, 10), y: 663 },
-    			{ x: new Date(2017, 0, 11), y: 639 },
-    			{ x: new Date(2017, 0, 12), y: 673 },
-    			{ x: new Date(2017, 0, 13), y: 660 },
-    			{ x: new Date(2017, 0, 14), y: 562 },
-    			{ x: new Date(2017, 0, 15), y: 643 },
-    			{ x: new Date(2017, 0, 16), y: 570 }
-    		]
-    	},
-      {
-        //_________________________________________________tres___________________________________________________________________
-        type: "line",
-    		showInLegend: true,
-    		name: "Porcentaje de Contaminacion",
-    		markerType: "square",
-    		xValueFormatString: "DD MMM, YYYY",
-        color:"#BB8FCE",
-    		dataPoints: [
-    			{ x: new Date(2017, 0, 3), y: 400 },
-    			{ x: new Date(2017, 0, 4), y: 400 },
-    			{ x: new Date(2017, 0, 5), y: 400 },
-    			{ x: new Date(2017, 0, 6), y: 400 },
-    			{ x: new Date(2017, 0, 7), y: 400 },
-    			{ x: new Date(2017, 0, 8), y: 400 },
-    			{ x: new Date(2017, 0, 9), y: 400 },
-    			{ x: new Date(2017, 0, 10), y: 400 },
-    			{ x: new Date(2017, 0, 11), y: 400 },
-    			{ x: new Date(2017, 0, 12), y: 400 },
-    			{ x: new Date(2017, 0, 13), y: 400 },
-    			{ x: new Date(2017, 0, 14), y: 400 },
-    			{ x: new Date(2017, 0, 15), y: 400 },
-    			{ x: new Date(2017, 0, 16), y: 400 }
-    		]
-    	},
-      {
-        type: "line",
-    		showInLegend: true,
-    		name: "Metros",
-    		markerType: "square",
-    		xValueFormatString: "DD MMM, YYYY",
-        color:"#ABEBC6",
-        dataPoints: [
-          { x: new Date(2017, 0, 3), y: 300 },
-          { x: new Date(2017, 0, 4), y: 300 },
-          { x: new Date(2017, 0, 5), y: 400 },
-          { x: new Date(2017, 0, 6), y: 300 },
-          { x: new Date(2017, 0, 7), y: 300 },
-          { x: new Date(2017, 0, 8), y: 300 },
-          { x: new Date(2017, 0, 9), y: 300 },
-          { x: new Date(2017, 0, 10), y: 300 },
-          { x: new Date(2017, 0, 11), y: 300 },
-          { x: new Date(2017, 0, 12), y: 300 },
-          { x: new Date(2017, 0, 13), y: 300 },
-          { x: new Date(2017, 0, 14), y: 300 },
-          { x: new Date(2017, 0, 15), y: 300 },
-          { x: new Date(2017, 0, 16), y: 300 }
-        ]
-      }]
-    });
-chart.render();
+						</div>
+					</div>
 
-function toogleDataSeries(e){
-	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-		e.dataSeries.visible = false;
-	} else{
-		e.dataSeries.visible = true;
-	}
-	chart.render();
-}
+				</section>
+		
+				<section id="cta">
 
-}
-</script>
-<section class="back">
-  </head>
-  <body style='background-image: url("/Users/David/Desktop/PI_WEB/css/back.jpg");'>
-  <header>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#"> <img style="height:51px; width: 100px;" src="/Users/David/Desktop/PI_WEB/css/pornhub.jpg" alt=""></a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Inicio</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="http://localhost/PI/lista.php#">Admin</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="sigin.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="loggin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+					<h2>Registrate.</h2>
+			
+					<form>
+						<div class="row uniform 50%">
+							<div class="8u 12u(mobilep)">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="4u 12u(mobilep)">
+								<input type="submit" value="Conectate" class="fit" />
+							</div>
+						</div>
+					</form>
 
-<main>
-<!--_________________________________________________UNA___________________________________________________________________-->
+				</section>
+	
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<ul class="copyright">
+						<li><p>&copy;S.M.I.P.</p> Creado por:  Carlos Zepeda.  Adan Urzua.</li><li><a href="http://html5up.net"></a></li>
+					</ul>
+				</footer>
 
+		</div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-  <section>
-    <div class="row">
-      <div class="col-md-2" >
-      </div>
-
-      <div class="col-md-8">
-        <h1 style="color:White">TEMPERATURA</h1>
-      </div>
-
-      <div class="col-md-2" >
-      </div>
-    </div>
-  </section>
-
-  <section class=temperatura style="background-color:#00000042">
-    <div class="row" >
-      <div class="col-md-2" >
-      </div>
-
-      <div class="col-md-6" >
-        <div class="thumbnail">
-            <div class="col-md-3">
-              <div style="font-size:90px; padding:5px;color:#E67E22" class="wi wi-day-cloudy"></div>
-            </div>
-            <div class="col-md-3">
-              <p style="color:#78281F;font-size:60px;padding:0px; ">32<sup class="wi wi-celsius"></sup></p>
-              <h5 style="padding:0px;">A caray que calor</h5>
-            </div>
-            <div class="col-md-2">
-              <p style="color:#78281F;font-size:30px;">66<sup class="wi wi-degrees"></sup> 44</p>
-              <p style="font-size:30px;color:#2471A3"  class="wi wi-raindrops"> 10%</p>
-
-            </div>
-            <div class="col-md-4">
-              <p style="font-size:45px; color:#28B463" class="wi wi-day-cloudy">
-                <p style="font-size:45px;color:#28B463" class="wi wi-day-hail"></p>
-                <p style="font-size:45px;color:#28B463" class="wi wi-day-rain"></p>
-                <p style="font-size:45px;color:#28B463" class="wi wi-day-sleet-storm"></p>
-                <p style="font-size:45px;color:#28B463" class="wi wi-day-windy"></p>
-                <p style="font-size:45px;color:#28B463" class="wi wi-day-sleet-storm"></p>
-               </p>
-            </div>
-          <button type="button" class="btn btn-info">Leer mas</button>
-        </div>
-      </div>
-
-      <div class="col-md-2"   >
-        <div class="thumbnail">
-          <a href="#">
-            <div class="caption">
-            <h3>Noticia 1</h3>
-          </a>
-          </div>
-          <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </h5>
-        </div>
-      </div>
-
-      <div class="col-md-2">
-      </div>
-    </div>
-  </section>
-
-</section>
-<!--_________________________________________________DOS___________________________________________________________________-->
-<section>
-  <div class="row">
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-8" >
-      <h1>HUMEDAD</h1>
-    </div>
-
-    <div class="col-md-2" >
-    </div>
-  </div>
-</section>
-
-<section class=humedad>
-  <div class="row" >
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-6" >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3 style="color:black">Noticia 1</h3>
-        </a>
-        </div>
-        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
-        <button type="button" class="btn btn-info">Leer mas</button>
-      </div>
-    </div>
-
-    <div class="col-md-2"  >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3>Noticia 1</h3>
-        </a>
-        </div>
-        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </h5>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-    </div>
-  </div>
-</section>
-<!--_________________________________________________TRES___________________________________________________________________-->
-<section >
-  <div class="row">
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-8" >
-      <h1>TURBIDEZ</h1>
-    </div>
-
-    <div class="col-md-2" >
-    </div>
-  </div>
-</section>
-
-<section class="turbidez">
-  <div class="row" >
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-6" >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3 style="color:black">Noticia 1</h3>
-        </a>
-        </div>
-        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
-        <button type="button" class="btn btn-info">Leer mas</button>
-      </div>
-    </div>
-
-    <div class="col-md-2" >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3>Noticia 1</h3>
-        </a>
-        </div>
-        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  </h5>
-        <button type="button" class="btn btn-info">Leer mas</button>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-    </div>
-  </div>
-</section>
-<!--_________________________________________________CUATRO___________________________________________________________________-->
-<section >
-  <div class="row">
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-8" >
-      <h1>PROFUNDIDAD</h1>
-    </div>
-
-    <div class="col-md-2" >
-    </div>
-  </div>
-</section>
-
-<section class="profundidad">
-  <div class="row" >
-    <div class="col-md-2" >
-    </div>
-
-    <div class="col-md-6" >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3 style="color:black">Noticia 1</h3>
-        </a>
-        </div>
-        <h4> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</h4>
-        <button type="button" class="btn btn-info">Leer mas</button>
-      </div>
-    </div>
-
-    <div class="col-md-2" >
-      <div class="thumbnail">
-        <a href="4.jpg">
-          <div class="caption">
-          <h3>Noticia 1</h3>
-        </a>
-        </div>
-        <h5> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt  </h5>
-        <button type="button" class="btn btn-info">Leer mas</button>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-    </div>
-  </div>
-</section>
-<div id="chartContainer" style="height: 370px; width: 69%;padding-left:6cm"></div>
-
-
-
-</main>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  </body>
+	</body>
 </html>

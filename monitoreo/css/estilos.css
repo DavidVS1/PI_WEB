@@ -8,6 +8,48 @@ main{
   padding-top: 100px;
 }
 
+header {
+  background: rgba(0,0,0,0.9);
+  padding-bottom:: 1000px;                      	/*REVISAR*/
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+
+/*CLASE TEMPERATURA*/
+
+.temperatura ul{
+	padding: 0;
+	margin: 0;
+}
+.temperatura ul li{
+	list-style: none;
+}
+
+.temperatura ul li div{
+	margin: 5px; 
+	padding: 0;
+	height: 40%;	
+}
+
+
+	.temperatura ul li div .row{
+		height: 45px;
+		padding: 5px;
+		margin: 5px;
+
+	}
+
+	.temperatura ul li div .row p{
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+
+/*---------------------------------------------------------------------*/
 
 
 section.temperatura div.col-md-6 div{

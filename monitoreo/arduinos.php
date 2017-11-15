@@ -62,7 +62,7 @@
 									<h3 align="center">Arduino</h3>
 									<br/>
 									<div class="table-responsive">
-											 <table id="restaurante" class="table table-striped table-bordered">
+											 <table id="arduinos" class="table table-striped table-bordered">
 														<thead>
 																 <tr>
 																			<td>ID</td>
@@ -81,6 +81,9 @@
 																			<td> <?php echo $row["ubicacion"]; ?> </td>
 																			<td> <?php echo $row["activo"]; ?> </td>
 																			<td>
+																				<a href="pa_formulario.php?id=<?php echo $row['pa_id'] ?>" class="btn btn-primary btn-sm">
+																					Editar
+																				</a>
 
 
 																					<a href="pa_eliminar.php?id=<?php echo $row['pa_id'] ?>" class="btn btn-danger btn-sm">
@@ -105,7 +108,7 @@
 	</div>
 	<script>
 $(document).ready(function(){
-		 $('#SIMP2').DataTable();
+		 $('#arduinos').DataTable();
 });
 </script>
 

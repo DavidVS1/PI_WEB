@@ -3,16 +3,17 @@
 	<head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="refresh" content="60">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
   </head>
 		<body style="background-color:#cccccc">
@@ -55,8 +56,6 @@
 						 $query ="SELECT * FROM usuarios ORDER BY id_usuario DESC";
 						 $result = mysqli_query($conn, $query)
 						 or die("Error: ".mysqli_error($conn));
-
-
 						?>
 						<div class="container">
 							<br /><br/>
@@ -64,7 +63,7 @@
 															<h3 align="center">Usuarios</h3>
 															<br/>
 															<div class="table-responsive">
-																	 <table id="restaurante" class="table table-striped table-bordered">
+																	 <table id="usuarios" class="table table-striped table-bordered">
 																				<thead>
 																						 <tr>
 																									<td>ID</td>
@@ -108,7 +107,7 @@
 	</div>
 	<script>
 $(document).ready(function(){
-		 $('#SIMP2').DataTable();
+		 $('#usuarios').DataTable();
 });
 </script>
 

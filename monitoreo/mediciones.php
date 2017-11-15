@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="refresh" content="60">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,10 +48,11 @@
 					</div>
 
 					<div class="container">
+
 <?php
  $conn = mysqli_connect("localhost","root","","SIMP2");
- //$query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
- $query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC";
+ $query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
+ //$query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC";
  $result = mysqli_query($conn, $query)
  or die("Error: ".mysqli_error($conn));
 ?>
@@ -61,14 +62,16 @@
 									<h3 align="center">Mediciones</h3>
 									<br/>
 									<div class="table-responsive">
-											 <table id="restaurante" class="table table-striped table-bordered">
+											 <table id="mediciones" class="table table-striped table-bordered">
 														<thead>
 																 <tr>
-																			<td>ID MED</td>
-																			<td>ID Sensor</td>
-																			<td>ID Arduino</td>
-																			<td>Fecha</td>
+																			<td>Nombre del Arduino</td>
+																			<td>Nombre del Sensor</td>
+																			<td>Ubicacion</td>
+																			<td>Activo</td>
 																			<td>Valor</td>
+																			<td>Unidad</td>
+																			<td>Fecha</td>
 																			<td>Accion</td>
 																 </tr>
 														</thead>
@@ -76,13 +79,14 @@
 														while($row = mysqli_fetch_array($result)):
 														?>
 																 <tr>
-																			<td> <?php echo $row["id_mediciones"]; ?> </td>
-																			<td> <?php echo $row["id_sensor"]; ?> </td>
-																			<td> <?php echo $row["id_arduino"]; ?> </td>
-																			<td> <?php echo $row["fecha"]; ?> </td>
+																			<td> <?php echo $row["nombre_arduino"]; ?> </td>
+																			<td> <?php echo $row["nombre_sensor"]; ?> </td>
+																			<td> <?php echo $row["ubicacion"]; ?> </td>
+																			<td> <?php echo $row["activo"]; ?> </td>
 																			<td> <?php echo $row["valor"]; ?> </td>
+																			<td> <?php echo $row["unidad"]; ?> </td>
+																			<td> <?php echo $row["fecha"]; ?> </td>
 																			<td>
-
 																					<a href="pa_eliminar.php?id=<?php echo $row['pa_id'] ?>" class="btn btn-danger btn-sm">
 																						Eliminar
 																					</a>
@@ -104,7 +108,7 @@
 	</div>
 	<script>
 $(document).ready(function(){
-		 $('#SIMP2').DataTable();
+		 $('#mediciones').DataTable();
 });
 </script>
 

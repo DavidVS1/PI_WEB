@@ -16,7 +16,7 @@
            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
   </head>
-		<body style="background-color:#cccccc">
+		<body style='background-image: url("css/aaa.jpg");'>
 			<div class="header">
 
 
@@ -43,9 +43,9 @@
 
 
 			<div id="cuadro">
-				<center><img src="contact.png"><br>
+				<center><span style="font-size:125px" class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					<div id="titulo">
-						<center><h1>Menu de consultas</h1></center>
+						<center><h1>Usuarios</h1></center>
 					</div>
 
 					<div class="container">
@@ -60,7 +60,6 @@
 						<div class="container">
 							<br /><br/>
 												 <div class="container">
-															<h3 align="center">Usuarios</h3>
 															<br/>
 															<div class="table-responsive">
 																	 <table id="usuarios" class="table table-striped table-bordered">

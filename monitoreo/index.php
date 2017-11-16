@@ -1,3 +1,9 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['bsd1']))
+		header('Location: ../index.html');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -58,104 +64,108 @@
           itemclick: toogleDataSeries
         },
         data: [{
-          //_________________________________________________UNA___________________________________________________________________
+          //_________________________________________________UNA______________________________________________________________
+          <?php
+           $conn = mysqli_connect("localhost","root","","SIMP2");
+           //$query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
+           $query ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=1 ORDER BY fecha  DESC";
+           $query2 ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=2 ORDER BY fecha  DESC";
+           $query3 ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=3 ORDER BY fecha  DESC";
+           $query4 ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=4 ORDER BY fecha  DESC";
+           //$quer = "SELECT * FROM `$tabla` WHERE `$iden` = '$id'";
+           //$query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC";
+           $result = mysqli_query($conn, $query)
+           or die("Error: ".mysqli_error($conn));
+           $result2 = mysqli_query($conn, $query2)
+           or die("Error: ".mysqli_error($conn));
+           $result3 = mysqli_query($conn, $query3)
+           or die("Error: ".mysqli_error($conn));
+           $result4 = mysqli_query($conn, $query4)
+           or die("Error: ".mysqli_error($conn));
+
+           $contador = 0;
+           while($row = mysqli_fetch_array($result)){
+             $valor_med[$contador]=$row['valor'];
+             $contador++;
+           }
+
+           $contador2 = 0;
+           while($row2 = mysqli_fetch_array($result2)){
+             $valor_med2[$contador2]=$row2['valor'];
+             $contador2++;
+           }
+
+           $contador3 = 0;
+           while($row3 = mysqli_fetch_array($result3)){
+             $valor_med3[$contador3]=$row3['valor'];
+             $contador3++;
+           }
+
+           $contador4 = 0;
+           while($row4 = mysqli_fetch_array($result4)){
+             $valor_med4[$contador4]=$row4['valor'];
+             $contador4++;
+           }
+          ?>
           type: "line",
           showInLegend: true,
           name: "Grados C",
           markerType: "square",
-          xValueFormatString: "DD MMM, YYYY",
+          xValueFormatString: "DD MMM, YYYY hh:mm",
           color: "#F5B041",
           dataPoints: [
-            { x: new Date(2017, 0, 3), y: 650 },
-            { x: new Date(2017, 0, 4), y: 700 },
-            { x: new Date(2017, 0, 5), y: 710 },
-            { x: new Date(2017, 0, 6), y: 658 },
-            { x: new Date(2017, 0, 7), y: 734 },
-            { x: new Date(2017, 0, 8), y: 963 },
-            { x: new Date(2017, 0, 9), y: 847 },
-            { x: new Date(2017, 0, 10), y: 853 },
-            { x: new Date(2017, 0, 11), y: 869 },
-            { x: new Date(2017, 0, 12), y: 943 },
-            { x: new Date(2017, 0, 13), y: 970 },
-            { x: new Date(2017, 0, 14), y: 869 },
-            { x: new Date(2017, 0, 15), y: 890 },
-            { x: new Date(2017, 0, 16), y: 930 }
+            <?php for ($i=0; $i < $contador ; $i++): ?>
+              { x: new Date(2017, 0, <?php echo $i ?> , 22, 10), y: <?php echo $valor_med[$i] ?> },
+            <?php endfor; ?>
+
+            //{ x: new Date(2017, 0, 15), y: <?php // echo $valor_med[12] ?> },
+            //{ x: new Date(2017, 0, 16), y: <?php // echo 5000   ?> }
           ]
         },
         {
           //_________________________________________________DOS___________________________________________________________________
           type: "line",
           showInLegend: true,
-          name: "Porcentaje de Hidrogeno",
+          name: "Humedad del Ambiente",
+          markerType: "square",
+          xValueFormatString: "DD MMM, YYYY",
+          color: "#E74C3C ",
+          dataPoints: [
+            <?php for ($i=0; $i < $contador2 ; $i++): ?>
+              { x: new Date(2017, 0, <?php echo $i ?> , 22, 10), y: <?php echo $valor_med2[$i] ?> },
+            <?php endfor; ?>
+          ]
+        },
+        {
+          //_________________________________________________DOS___________________________________________________________________
+          type: "line",
+          showInLegend: true,
+          name: "Profundidad",
           markerType: "square",
           xValueFormatString: "DD MMM, YYYY",
           color: "#85C1E9",
           dataPoints: [
-            { x: new Date(2017, 0, 3), y: 510 },
-            { x: new Date(2017, 0, 4), y: 560 },
-            { x: new Date(2017, 0, 5), y: 540 },
-            { x: new Date(2017, 0, 6), y: 558 },
-            { x: new Date(2017, 0, 7), y: 544 },
-            { x: new Date(2017, 0, 8), y: 693 },
-            { x: new Date(2017, 0, 9), y: 657 },
-            { x: new Date(2017, 0, 10), y: 663 },
-            { x: new Date(2017, 0, 11), y: 639 },
-            { x: new Date(2017, 0, 12), y: 673 },
-            { x: new Date(2017, 0, 13), y: 660 },
-            { x: new Date(2017, 0, 14), y: 562 },
-            { x: new Date(2017, 0, 15), y: 643 },
-            { x: new Date(2017, 0, 16), y: 570 }
+            <?php for ($i=0; $i < $contador3 ; $i++): ?>
+              { x: new Date(2017, 0, <?php echo $i ?> , 22, 10), y: <?php echo $valor_med3[$i] ?> },
+            <?php endfor; ?>
           ]
         },
         {
-          //_________________________________________________tres___________________________________________________________________
+          //_________________________________________________DOS___________________________________________________________________
           type: "line",
           showInLegend: true,
-          name: "Porcentaje de Contaminacion",
+          name: "Humedad del suelo",
           markerType: "square",
           xValueFormatString: "DD MMM, YYYY",
-          color: "#BB8FCE",
+          color: "#28B463",
           dataPoints: [
-            { x: new Date(2017, 0, 3), y: 400 },
-            { x: new Date(2017, 0, 4), y: 400 },
-            { x: new Date(2017, 0, 5), y: 400 },
-            { x: new Date(2017, 0, 6), y: 400 },
-            { x: new Date(2017, 0, 7), y: 400 },
-            { x: new Date(2017, 0, 8), y: 400 },
-            { x: new Date(2017, 0, 9), y: 400 },
-            { x: new Date(2017, 0, 10), y: 400 },
-            { x: new Date(2017, 0, 11), y: 400 },
-            { x: new Date(2017, 0, 12), y: 400 },
-            { x: new Date(2017, 0, 13), y: 400 },
-            { x: new Date(2017, 0, 14), y: 400 },
-            { x: new Date(2017, 0, 15), y: 400 },
-            { x: new Date(2017, 0, 16), y: 400 }
+            <?php for ($i=0; $i < $contador4 ; $i++): ?>
+              { x: new Date(2017, 0, <?php echo $i ?> , 22, 10), y: <?php echo $valor_med4[$i] ?> },
+            <?php endfor; ?>
           ]
-        },
-        {
-          type: "line",
-          showInLegend: true,
-          name: "Metros",
-          markerType: "square",
-          xValueFormatString: "DD MMM, YYYY",
-          color: "#ABEBC6",
-          dataPoints: [
-            { x: new Date(2017, 0, 3), y: 300 },
-            { x: new Date(2017, 0, 4), y: 300 },
-            { x: new Date(2017, 0, 5), y: 400 },
-            { x: new Date(2017, 0, 6), y: 300 },
-            { x: new Date(2017, 0, 7), y: 300 },
-            { x: new Date(2017, 0, 8), y: 300 },
-            { x: new Date(2017, 0, 9), y: 300 },
-            { x: new Date(2017, 0, 10), y: 300 },
-            { x: new Date(2017, 0, 11), y: 300 },
-            { x: new Date(2017, 0, 12), y: 300 },
-            { x: new Date(2017, 0, 13), y: 300 },
-            { x: new Date(2017, 0, 14), y: 300 },
-            { x: new Date(2017, 0, 15), y: 300 },
-            { x: new Date(2017, 0, 16), y: 300 }
-          ]
-        }]
+        }
+
+      ]
       });
       chart.render();
 
@@ -194,6 +204,9 @@
         </li>
         <li><a href="#">Page 2</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../cerrar_sesion.php"><span class="glyphicon glyphicon-user"></span> Cerrar sesion</a></li>
+    </ul>
     </div>
   </nav>
 
@@ -209,7 +222,7 @@
         </div>
 
         <div class="col-md-8">
-          <h1 style="color:White; margin: 0 0 20px 0;">Información de sensores activos</h1>
+          <h1 style="text-align: center;color:White; margin: 0 0 20px 0;">Información de sensores activos</h1>
         </div>
 
         <div class="col-md-2">
@@ -222,14 +235,16 @@
     <?php
      $conn = mysqli_connect("localhost","root","","SIMP2");
      //$query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
-     $query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC LIMIT 4;";
+     $query ="SELECT * FROM mediciones ORDER BY `mediciones`.`id_mediciones` DESC LIMIT 4";
      //$quer = "SELECT * FROM `$tabla` WHERE `$iden` = '$id'";
      //$query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC";
+
+
      $result = mysqli_query($conn, $query)
      or die("Error: ".mysqli_error($conn));
     ?>
 
-    <section>
+    <section >
       <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -250,8 +265,25 @@
 
                   <div class="col-md-10" style="margin: 0; padding: 0;">
                     <ul>
+
+                      <?php
+                      $contador = 0;
+                      while ($row = mysqli_fetch_array($result)){
+                        $valor_medicion[$contador]=$row['valor'];
+
+                        $contador++;
+                      }
+                      $num1=0;
+                      $num2=1;
+                      $num3=2;
+                      $num4=3;
+
+                      for ($i=0; $i < 1 ; $i++) :
+
+                      ?>
+
                       <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
+                        <div class="col-md-10 well" style="background-color: rgb(223, 223, 223);">
 
                           <!--FECHA-->
                           <div class="row" style="text-align: center;">
@@ -261,57 +293,53 @@
                           </div>
 
                           <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
+                          <div style="padding-bottom:100px" class="row">
+                            <p style="font-size:80px; color:#E67E22; text-align: center; ">
+                              <i  class="wi wi-day-cloudy"></i>
                             </p>
                           </div>
 
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
+
                           <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[3] ?>
+                          <div class="row" style="padding-bottom:100px;">
+                            <p style="color:rgb(28, 131, 8);font-size:50px; text-align: center;"><?php echo $valor_medicion[$num4] ?>
                               <sup class="wi wi-celsius"></sup>
                             </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
+                            <p style="color: gray; font-size:25px; text-align: center;">Temperatura</p>
                           </div>
 
 
                           <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[2] ?>
+                          <div class="row" style="padding-bottom:100px;">
+                            <p style="color: #2471A3 ;font-size:50px; text-align: center;"><?php echo $valor_medicion[$num3] ?>
                               <sup class="wi wi-humidity"></sup>
                             </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
+                            <p style="color: gray; font-size:25px; text-align: center;">Humedad del ambiente</p>
                           </div>
 
                           <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[0] ?> cm
+                          <div class="row" style="padding-bottom:100px;">
+                            <p style="color: #2471A3 ;font-size:50px; text-align: center; margin:0;"><?php echo $valor_medicion[$num2] ?> cm
                               <sup class="wi wi-flood"></sup>
                             </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
+                            <p style="color: gray; font-size:25px; text-align:center;">Profundidad</p>
                           </div>
+
+                          <div class="row" style="padding-bottom:100px;">
+                            <p style="color:rgb(143, 28, 15); font-size:50px;  text-align: center; "><?php echo $valor_medicion[$num1] ?>
+                              <sup class="wi wi-humidity"></sup>
+                            </p>
+                            <p style="color: gray; font-size:25px; text-align: center;">Humedad de la tierra</p>
+                          </div>
+
+
 
 
 
 
                           <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
+                          <div class="row" style="padding-bottom:100px;">
+                            <p style="color:rgb(106, 104, 104); font-size:25px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
                               <span class="glyphicon glyphicon-import"></span>
                             </p>
                           </div>
@@ -324,1142 +352,15 @@
                         </div>
                       </li>
 
+                    <?php
+                    $num1+=4;
+                    $num2+=4;
+                    $num3+=4;
+                    $num4+=4;
 
 
+                    endfor; ?>
 
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <?php
-                          $contador = 0;
-                          while($row = mysqli_fetch_array($result)){
-                            $valor_medicion[$contador]=$row['valor'];
-                            $contador++;
-                          }
-                          ?>
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;"><?php echo $valor_medicion[0] ?>
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;"><?php echo $valor_medicion[1] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; "><?php echo $valor_medicion[2] ?>
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;"><?php echo $valor_medicion[3] ?> cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-                          </div>
-
-
-
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-
-
-
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-
-              <div class="carousel-caption" style="position: relative;">
-                <h3>Noviembre 2017</h3>
-                <p>Semana 1</p>
-              </div>
-
-            </div>
-
-            <div class="item">
-
-              <section class=temperatura style="background-color:#00000042">
-                <div class="row">
-                  <div class="col-md-2">
-                  </div>
-
-                  <div class="col-md-10" style="margin: 0; padding: 0;">
-                    <ul>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:25px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-              <div class="carousel-caption" style="position: relative;">
-                <h3>Noviembre 2017</h3>
-                <p>Semana 2</p>
-              </div>
-            </div>
-
-            <div class="item">
-              <section class=temperatura style="background-color:#00000042">
-                <div class="row">
-                  <div class="col-md-2">
-                  </div>
-
-                  <div class="col-md-10" style="margin: 0; padding: 0;">
-                    <ul>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:25px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center;">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
-                      <li>
-                        <div class="col-md-2 well" style="background-color: rgb(223, 223, 223);">
-
-                          <!--FECHA-->
-                          <div class="row" style="text-align: center;">
-                            <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
-                            </div>
-                          </div>
-
-                          <!--ICONO TIEMPO-->
-                          <div class="row">
-                            <p style="font-size:30px; color:#E67E22; text-align: center;">
-                              <i class="wi wi-day-cloudy"></i>
-                            </p>
-                          </div>
-
-                          <!--TEMPERATURA-->
-                          <div class="row">
-                            <p style="color:rgb(28, 131, 8);font-size:20px; text-align: center">32
-                              <sup class="wi wi-celsius"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
-                          </div>
-
-                          <!--HUMEDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center;">66
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
-                          </div>
-
-                          <div class="row">
-                            <p style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">10
-                              <sup class="wi wi-humidity"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
-                          </div>
-
-                          <!--PROFUNDIDAD-->
-                          <div class="row">
-                            <p style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">66 cm
-                              <sup class="wi wi-flood"></sup>
-                            </p>
-                            <p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
-
-                          </div>
-
-                          <!--ID ARDUINO-->
-                          <div class="row">
-                            <p style="color:rgb(106, 104, 104); font-size:15px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-                              <span class="glyphicon glyphicon-import"></span>
-                            </p>
-                          </div>
-
-                          <!--MAS-->
-                          <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
-                          </div>
-
-                        </div>
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -1489,7 +390,7 @@
 
     <!--_________________________________________________DOS___________________________________________________________________-->
 
-    <div id="chartContainer" style="height: 370px; width: 69%;padding-left:6cm"></div>
+    <div id="chartContainer" style="height: 370px; width: 69%;padding-left:17%; "></div>
 
   </main>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

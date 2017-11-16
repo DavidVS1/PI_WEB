@@ -5,26 +5,45 @@
 		<meta charset="es" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="css/estilos.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="css/weather-icons.css">
+	  <link rel="stylesheet" href="css/weather-icons-wind.css">
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
-		
-				<header id="header" class="alt">
-					<h1><p><a href="index.html">S.M.I.P</p></a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">INICIO</a></li>
-							<li>
-								<a href="#" class="icon fa-angle-down">Sistemas</a>
-								<ul>
-							        <li><a href="pagina2.html">Sistemas de monitoreo</a></li>
-								</ul>
-							</li>
-							<li><a href="monitoreo/loggin.html" class="button">REGISTRATE</a></li>
-						</ul>
-					</nav>
-				</header>
-		
+
+			<div class="header">
+
+
+						<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a href="index.php"> <img style="height:51px; width: 100px;" src="monitoreo/css/hub.jpg" alt=""></a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="index.php">Incio</a></li>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="usuarios.php">Usuarios</a></li>
+								<li><a href="arduinos.php">Arduinos</a></li>
+								<li><a href="mediciones.php">Mediciones</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Page 2</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+				</div>
+			</nav>
+
+			</div>
+
 				<section id="banner">
 					<h2>Bienvenidos</h2>
 					<p>Empresa creada para facilitar tu trabajo y tu vida.</p>
@@ -33,7 +52,7 @@
 						<li><a href="generic.html" class="button">Aprende mas</a></li>
 					</ul>
 				</section>
-			
+
 				<section id="main" class="container">
 
 					<section class="box special">
@@ -41,7 +60,7 @@
 							<h2>Conoce la nueva manera de regar tus tierras.
 							<br />
 							La era de la tecnologia esta aqui, tu decides si quieres que te ayude o seguir trabajando a la "vieja escuela"</h2>
-							
+
 						</header>
 						<span class="image featured"><img src="http://images.prensa.com/economia/extrabajadores-Coosemupar-reactivar-siembra-Baru_LPRIMA20150416_0046_24.jpg" alt="" /></span>
 					</section>
@@ -80,11 +99,11 @@
 					</div>
 
 				</section>
-		
+
 				<section id="cta">
 
 					<h2>Registrate.</h2>
-			
+
 					<form>
 						<div class="row uniform 50%">
 							<div class="8u 12u(mobilep)">
@@ -97,7 +116,7 @@
 					</form>
 
 				</section>
-	
+
 				<footer id="footer">
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>

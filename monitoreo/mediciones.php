@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="refresh" content="60">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/weather-icons.css">
+<link rel="stylesheet" href="css/weather-icons-wind.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -15,7 +17,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
   </head>
-		<body style="background-color:#cccccc">
+		<body style='background-image: url("css/aaa.jpg");'>
 			<div class="header">
 
 
@@ -42,9 +44,9 @@
 
 
 			<div id="cuadro">
-				<center><img src="contact.png"><br>
+				<center><i style="font-size:125px"  class="wi wi-earthquake"></i>
 					<div id="titulo">
-						<center><h1>Menu de consultas</h1></center>
+						<center><h1>Mediciones</h1></center>
 					</div>
 
 					<div class="container">
@@ -56,13 +58,12 @@
  $result = mysqli_query($conn, $query)
  or die("Error: ".mysqli_error($conn));
 ?>
-<div class="container">
+<div class="container" >
 	<br /><br/>
-						 <div class="container">
-									<h3 align="center">Mediciones</h3>
+						 <div class="container" style="color:black;font-weight: bold;">
 									<br/>
 									<div class="table-responsive">
-											 <table id="mediciones" class="table table-striped table-bordered">
+											 <table id="mediciones" class="table table-bordered table-condensed ">
 														<thead>
 																 <tr>
 																			<td>Nombre del Arduino</td>

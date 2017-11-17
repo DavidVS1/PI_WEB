@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Proyecto integrador</title>
   <link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="js/ajax_query.php">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/weather-icons.css">
   <link rel="stylesheet" href="css/weather-icons-wind.css">
@@ -28,7 +29,6 @@
 
 
   <!--Version agregada de Bootstrap-->
-
 
 <!-- Tabla-->
   <script>
@@ -181,6 +181,80 @@
     }
   </script>
 
+
+	<!--SCRIPT AJAX CONSULTA DE DATOS Y ACTUALIZACION-->
+  <script>
+     var datos;
+
+     function actualizar_html(datos){
+        document.getElementById("TEMPERATURA").innerHTML = datos[0];
+        document.getElementById("HUMEDAD").innerHTML = datos[1];
+        document.getElementById("PROFUNDIDAD").innerHTML = datos[2];
+        document.getElementById("HUMEDAD_SUELO").innerHTML = datos[3];
+
+        switch (datos[4]){
+            case "Mon":
+                document.getElementById("FECHA").innerHTML = "Lunes  " + datos[5];
+                break;
+            case "Tue":
+                document.getElementById("FECHA").innerHTML = "Martes  " + datos[5];
+                break;
+            case "Wen":
+                document.getElementById("FECHA").innerHTML = "Miercoles  " + datos[5];
+                break;
+            case "Thu":
+                document.getElementById("FECHA").innerHTML = "Jueves  " + datos[5];
+                break;
+            case "Fri":
+                document.getElementById("FECHA").innerHTML = "Viernes  " + datos[5];
+                break;
+            case "Sat":
+                document.getElementById("FECHA").innerHTML = "Sábado  " + datos[5];
+                break;
+            case "Sun":
+                document.getElementById("FECHA").innerHTML = "Domingo  " + datos[5];
+                break;
+            default:
+                console.log('Error: DATO DEL DIA');
+        }
+
+     }
+
+     $(document).ready(
+            function() {
+                setInterval(function() {
+
+                $(function(){
+
+                    var ajax = $.ajax({
+                        data: {} ,
+                        url: "js/ajax_query.php",
+                        type: "POST",
+                        success: function (response){
+                            console.log(response);
+                            datos = JSON.parse(response);
+;                        },
+                        error: function(response,estatus,error){
+
+                            console.log("Error:",error);
+                        }
+                    });
+                });
+
+                //Actualizar datos en pagina web
+                actualizar_html(datos);
+
+                }, 550);
+            });
+  </script>
+
+  <!--//////////////////////////////////////////////////////////////////////-->
+
+
+
+
+
+
   <section class="back">
 </head>
 
@@ -233,7 +307,7 @@
 
     <!--_______________________________________VISOR MEDICIONES___________________________________________________-->
     <?php
-     $conn = mysqli_connect("localhost","root","","SIMP2");
+     /*$conn = mysqli_connect("localhost","root","","SIMP2");
      //$query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
      $query ="SELECT * FROM mediciones ORDER BY `mediciones`.`id_mediciones` DESC LIMIT 4";
      //$quer = "SELECT * FROM `$tabla` WHERE `$iden` = '$id'";
@@ -242,7 +316,7 @@
 
      $result = mysqli_query($conn, $query)
      or die("Error: ".mysqli_error($conn));
-    ?>
+    */?>
 
     <section >
       <div class="container">
@@ -266,21 +340,6 @@
                   <div class="col-md-10" style="margin: 0; padding: 0;">
                     <ul>
 
-                      <?php
-                      $contador = 0;
-                      while ($row = mysqli_fetch_array($result)){
-                        $valor_medicion[$contador]=$row['valor'];
-
-                        $contador++;
-                      }
-                      $num1=0;
-                      $num2=1;
-                      $num3=2;
-                      $num4=3;
-
-                      for ($i=0; $i < 1 ; $i++) :
-
-                      ?>
 
                       <li>
                         <div class="col-md-10 well" style="background-color: rgb(223, 223, 223);">
@@ -288,12 +347,12 @@
                           <!--FECHA-->
                           <div class="row" style="text-align: center;">
                             <div>
-                              <p style="font-size: 14px; color:rgb(24, 196, 190);">VIERNES</p>
+                              <p id="FECHA" style="font-size: 25px; color:rgb(24, 196, 190);"></p>
                             </div>
                           </div>
 
                           <!--ICONO TIEMPO-->
-                          <div style="padding-bottom:100px" class="row">
+                          <div  style="padding-bottom:100px" class="row">
                             <p style="font-size:80px; color:#E67E22; text-align: center; ">
                               <i  class="wi wi-day-cloudy"></i>
                             </p>
@@ -301,8 +360,8 @@
 
 
                           <!--TEMPERATURA-->
-                          <div class="row" style="padding-bottom:100px;">
-                            <p style="color:rgb(28, 131, 8);font-size:50px; text-align: center;"><?php echo $valor_medicion[$num4] ?>
+                          <div  class="row" style="padding-bottom:100px;">
+                            <p id="TEMPERATURA" style="color:rgb(28, 131, 8);font-size:50px; text-align: center;">
                               <sup class="wi wi-celsius"></sup>
                             </p>
                             <p style="color: gray; font-size:25px; text-align: center;">Temperatura</p>
@@ -310,8 +369,8 @@
 
 
                           <!--HUMEDAD-->
-                          <div class="row" style="padding-bottom:100px;">
-                            <p style="color: #2471A3 ;font-size:50px; text-align: center;"><?php echo $valor_medicion[$num3] ?>
+                          <div  class="row" style="padding-bottom:100px;">
+                            <p id="HUMEDAD" style="color: #2471A3 ;font-size:50px; text-align: center;">
                               <sup class="wi wi-humidity"></sup>
                             </p>
                             <p style="color: gray; font-size:25px; text-align: center;">Humedad del ambiente</p>
@@ -319,14 +378,14 @@
 
                           <!--PROFUNDIDAD-->
                           <div class="row" style="padding-bottom:100px;">
-                            <p style="color: #2471A3 ;font-size:50px; text-align: center; margin:0;"><?php echo $valor_medicion[$num2] ?> cm
+                            <p id="PROFUNDIDAD" style="color: #2471A3 ;font-size:50px; text-align: center; margin:0;">  cm
                               <sup class="wi wi-flood"></sup>
                             </p>
                             <p style="color: gray; font-size:25px; text-align:center;">Profundidad</p>
                           </div>
 
                           <div class="row" style="padding-bottom:100px;">
-                            <p style="color:rgb(143, 28, 15); font-size:50px;  text-align: center; "><?php echo $valor_medicion[$num1] ?>
+                            <p id="HUMEDAD_SUELO" style="color:rgb(143, 28, 15); font-size:50px;  text-align: center; ">
                               <sup class="wi wi-humidity"></sup>
                             </p>
                             <p style="color: gray; font-size:25px; text-align: center;">Humedad de la tierra</p>
@@ -346,20 +405,11 @@
 
                           <!--MAS-->
                           <div class="row">
-                            <button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn btn-info">Leer mas</button>
+                            <a href="mediciones.php"><button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn 							btn-info">Leer mas</button></a>
                           </div>
 
                         </div>
                       </li>
-
-                    <?php
-                    $num1+=4;
-                    $num2+=4;
-                    $num3+=4;
-                    $num4+=4;
-
-
-                    endfor; ?>
 
                     </ul>
                   </div>

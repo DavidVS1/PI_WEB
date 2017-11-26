@@ -20,7 +20,7 @@
 			<div class="header">
 
 
-						<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>

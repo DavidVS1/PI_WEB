@@ -21,7 +21,7 @@
 			<div class="header">
 
 
-						<nav class="navbar navbar-inverse">
+			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
@@ -33,7 +33,7 @@
 								<li><a href="usuarios.php">Usuarios</a></li>
 								<li><a href="arduinos.php">Arduinos</a></li>
 								<li><a href="mediciones.php">Mediciones</a></li>
-								<li><a href="Alarmas/Alarmas.php">Alarmas</a></li>
+								<li><a href="alarmas.php">Alarmas</a></li>
 							</ul>
 						</li>
 					</ul>

@@ -31,9 +31,9 @@
 								<li><a href="usuarios.php">Usuarios</a></li>
 								<li><a href="arduinos.php">Arduinos</a></li>
 								<li><a href="mediciones.php">Mediciones</a></li>
+								<li><a href="Alarmas/Alarmas.php">Alarmas</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Page 2</a></li>
 					</ul>
 				</div>
 			</nav>

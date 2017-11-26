@@ -27,18 +27,10 @@
       <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="index.php"> <img style="height:51px; width: 100px;" src="monitoreo/css/hub.jpg" alt=""></a>
+      <a href="index.html"> <img style="height:51px; width: 100px;" src="monitoreo/css/hub.jpg" alt=""></a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.html">Incio</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="usuarios.php">Page 1-1</a></li>
-          <li><a href="arduinos.php">Page 1-2</a></li>
-          <li><a href="mediciones.php">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Page 2</a></li>
     </ul>
   </div>
 </nav>

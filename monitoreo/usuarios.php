@@ -32,7 +32,7 @@
 								<li><a href="usuarios.php">Usuarios</a></li>
 								<li><a href="arduinos.php">Arduinos</a></li>
 								<li><a href="mediciones.php">Mediciones</a></li>
-								<li><a href="Alarmas/Alarmas.php">Alarmas</a></li>
+								<li><a href="alarmas.php">Alarmas</a></li>
 							</ul>
 						</li>
 					</ul>

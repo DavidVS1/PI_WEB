@@ -44,8 +44,8 @@
 									<li class="active"><a href="index.php">Incio</a></li>
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li><a href="monitoreo/usuarios.php">Usuarios</a></li>
-											<li><a href="monitoreo/arduinos.php">Arduinos</a></li>
+											<li><a href="usuarios.php">Usuarios</a></li>
+											<li><a href="arduinos.php">Arduinos</a></li>
 											<li><a href="mediciones.php">Mediciones</a></li>
 											<li><a href="alarmas.php">Alarmas</a></li>
 										</ul>
@@ -53,7 +53,6 @@
 								</ul>
 							</div>
 						</nav>
-			
 			</div>
 		
 			<center><i style="font-size:125px"  class="wi wi-time-2"></i>

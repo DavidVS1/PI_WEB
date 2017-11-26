@@ -52,7 +52,7 @@
 					<div class="container">
 
 <?php
- $conn = mysqli_connect("localhost","root","","SIMP2");
+ $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
  $query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
  //$query ="SELECT * FROM mediciones ORDER BY id_mediciones DESC";
  $result = mysqli_query($conn, $query)

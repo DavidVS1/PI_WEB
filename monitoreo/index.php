@@ -86,7 +86,7 @@
         data: [{
           //_________________________________________________UNA______________________________________________________________
           <?php
-           $conn = mysqli_connect("localhost","root","","SIMP2");
+           $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
            //$query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
            $query ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=1 ORDER BY fecha  DESC";
            $query2 ="SELECT id_sensor,valor,fecha FROM mediciones WHERE id_sensor=2 ORDER BY fecha  DESC";
@@ -246,10 +246,10 @@
 
 		 document.getElementById("ICONO").className = 'wi '+nombre_icono;
 
-		 document.getElementById("TEMPERATURA").innerHTML = datos[0]+'  <sup class="wi wi-celsius"></sup>';
-		 document.getElementById("HUMEDAD").innerHTML = datos[1]+'  <sup class="wi wi-humidity"></sup>';
-		 document.getElementById("PROFUNDIDAD").innerHTML = datos[2]+'  cm  <sup class="wi wi-flood"></sup>';
-		 document.getElementById("HUMEDAD_SUELO").innerHTML = datos[3]+'  <sup class="wi wi-humidity"></sup>';
+		 document.getElementById("TEMPERATURA").innerHTML = datos[3]+'  <sup class="wi wi-celsius"></sup>';
+		 document.getElementById("HUMEDAD").innerHTML = datos[2]+'  <sup class="wi wi-humidity"></sup>';
+		 document.getElementById("PROFUNDIDAD").innerHTML = datos[1]+'  cm  <sup class="wi wi-flood"></sup>';
+		 document.getElementById("HUMEDAD_SUELO").innerHTML = datos[0]+'  <sup class="wi wi-humidity"></sup>';
 
 
 		 switch (datos[4]){
@@ -306,7 +306,7 @@
 
 						 //Actualizar datos en pagina web
 						 actualizar_html(datos);
-						 set_icon(datos[0]);
+						 set_icon(datos[3]);
 
 						 }, 550);
 				 });
@@ -335,7 +335,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.html">S.I.M.P</a>
+						<a class="navbar-brand" href="index.php">S.I.M.P</a>
 				</div>
 				<!-- /.navbar-header -->
 
@@ -600,118 +600,6 @@
 												</ul>
 												<!-- /.nav-second-level -->
 										</li>
-										<section style="col-md-3; padding-left:100%;" >
-											<div class="container">
-												<div id="myCarousel" class="carousel slide" data-ride="carousel">
-													<!-- Indicators -->
-													<ol class="carousel-indicators">
-														<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-														<li data-target="#myCarousel" data-slide-to="1"></li>
-														<li data-target="#myCarousel" data-slide-to="2"></li>
-													</ol>
-
-													<!-- Wrapper for slides -->
-													<div class="carousel-inner" style="padding-bottom: 20px;">
-
-														<div class="item active">
-															<section class=temperatura style="background-color:#00000042">
-																<div class="row">
-																	<div class="col-md-2">
-																	</div>
-
-																	<div class="col-md-10" style="margin: 0; padding: 0;">
-																		<ul>
-
-
-																			<li>
-																				<div class="col-md-10 well" style="background-color: rgb(223, 223, 223);">
-
-																					<!--FECHA-->
-																					<div class="row" style="text-align: center;">
-																						<div>
-																							<p id="FECHA" style="font-size: 25px; color:rgb(24, 196, 190);"></p>
-																						</div>
-																					</div>
-
-																					<!--ICONO TIEMPO-->
-																					<div  style="padding-bottom:100px" class="row">
-																						<p style="font-size:80px; color:#E67E22; text-align: center; ">
-																							<i  id="ICONO" class=""></i>
-																						</p>
-																					</div>
-
-
-																					<!--TEMPERATURA-->
-																					<div  class="row" style="padding-bottom:100px;">
-																						<p id="TEMPERATURA" style="color:rgb(28, 131, 8);font-size:50px; text-align: center;">
-																							<sup class="wi wi-celsius"></sup>
-																						</p>
-																						<p style="color: gray; font-size:25px; text-align: center;">Temperatura</p>
-																					</div>
-
-
-																					<!--HUMEDAD-->
-																					<div  class="row" style="padding-bottom:100px;">
-																						<p id="HUMEDAD" style="color: #2471A3 ;font-size:50px; text-align: center;">
-																							<sup class="wi wi-humidity"></sup>
-																						</p>
-																						<p style="color: gray; font-size:25px; text-align: center;">Humedad del ambiente</p>
-																					</div>
-
-																					<!--PROFUNDIDAD-->
-																					<div class="row" style="padding-bottom:100px;">
-																						<p id="PROFUNDIDAD" style="color: #2471A3 ;font-size:50px; text-align: center; margin:0;">  cm
-																							<sup class="wi wi-flood"></sup>
-																						</p>
-																						<p style="color: gray; font-size:25px; text-align:center;">Profundidad</p>
-																					</div>
-
-																					<div class="row" style="padding-bottom:100px;">
-																						<p id="HUMEDAD_SUELO" style="color:rgb(143, 28, 15); font-size:50px;  text-align: center; ">
-																							<sup class="wi wi-humidity"></sup>
-																						</p>
-																						<p style="color: gray; font-size:25px; text-align: center;">Humedad de la tierra</p>
-																					</div>
-
-																					<!--ID ARDUINO-->
-																					<div class="row" style="padding-bottom:100px;">
-																						<p style="color:rgb(106, 104, 104); font-size:25px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
-																							<span class="glyphicon glyphicon-import"></span>
-																						</p>
-																					</div>
-
-																					<!--MAS-->
-																					<div class="row">
-																						<a href="mediciones.php"><button style="float:right; overflow: auto; font-size: 10px;" type="button" class="btn 							btn-info">Leer mas</button></a>
-																					</div>
-
-																				</div>
-																			</li>
-
-																		</ul>
-																	</div>
-																</div>
-															</section>
-															<div class="carousel-caption" style="position: relative;">
-																<h3>Noviembre 2017</h3>
-																<p>Semana 1</p>
-															</div>
-														</div>
-
-													</div>
-
-													<!-- Left and right controls -->
-													<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-														<span class="glyphicon glyphicon-chevron-left"></span>
-														<span class="sr-only">Previous</span>
-													</a>
-													<a class="right carousel-control" href="#myCarousel" data-slide="next">
-														<span class="glyphicon glyphicon-chevron-right"></span>
-														<span class="sr-only">Next</span>
-													</a>
-												</div>
-											</div>
-										</section>
 										<main>
 											<!--_________________________________________________UNA___________________________________________________________________-->
 
@@ -740,12 +628,12 @@
 		<div id="page-wrapper">
 				<div class="row">
 						<div class="col-lg-12">
-								<h1 class="page-header">S.I.M.P</h1>
+								<h2 class="page-header">S.I.M.P</h2>
 						</div>
 						<!-- /.col-lg-12 -->
 				</div>
 				<?php
-				 $conn = mysqli_connect("localhost","root","","SIMP2");
+				 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 				 $query ="SELECT * FROM usuarios ORDER BY id_usuario";
 				 $result = mysqli_query($conn, $query)
 				 or die("Error: ".mysqli_error($conn));
@@ -781,7 +669,7 @@
 								</div>
 						</div>
 						<?php
-						 $conn = mysqli_connect("localhost","root","","SIMP2");
+						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 						 $query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
 						 $result = mysqli_query($conn, $query)
 						 or die("Error: ".mysqli_error($conn));
@@ -816,7 +704,7 @@
 						</div>
 
 						<?php
-						 $conn = mysqli_connect("localhost","root","","SIMP2");
+						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 						 $query ="SELECT * FROM arduinos ORDER BY id_arduinos DESC";
 						 $result = mysqli_query($conn, $query)
 						 or die("Error: ".mysqli_error($conn));
@@ -850,6 +738,7 @@
 										</a>
 								</div>
 						</div>
+
 						<div class="col-lg-3 col-md-6">
 								<div class="panel panel-red">
 										<div class="panel-heading">
@@ -863,7 +752,7 @@
 														</div>
 												</div>
 										</div>
-										<a href="#">
+										<a href="Alarmas/Alarmas.php">
 												<div class="panel-footer">
 														<span class="pull-left">Ver detalles</span>
 														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -872,6 +761,123 @@
 										</a>
 								</div>
 						</div>
+				</div>
+
+				<div class="row">
+					<section style="col-md-2;" >
+											
+												<div id="myCarousel" class="carousel slide" data-ride="carousel">
+													<!-- Indicators -->
+													<ol class="carousel-indicators">
+														<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+														<li data-target="#myCarousel" data-slide-to="1"></li>
+														<li data-target="#myCarousel" data-slide-to="2"></li>
+													</ol>
+
+													<!-- Wrapper for slides -->
+													<div class="carousel-inner" style="padding-bottom: 20px;">
+
+														<div class="item active">
+															<section class=temperatura style="background-color:#00000042">
+																<div class="row">
+																	<div class="col-md-2">
+																	</div>
+
+																	<div class="col-md-10" style="margin: 0; padding: 0;">
+																		<ul>
+																			<li>
+																				<div class="col-md-8 well" style="background-color: rgb(223, 223, 223);">
+
+																					<!--FECHA-->
+																					<div class="row" style="text-align: center;">
+																						<div>
+																							<p id="FECHA" style="font-size: 25px; color:rgb(24, 196, 190);"></p>
+																						</div>
+																					</div>
+
+																					<!--ICONO TIEMPO-->
+																					<div class="row">
+																						<p style="font-size:35px; color:#E67E22; text-align: center; ">
+																							<i  id="ICONO" class=""></i>
+																						</p>
+																					</div>
+
+
+																					<!--TEMPERATURA-->
+																					<div  class="row">
+																						<p id="TEMPERATURA" style="color:rgb(28, 131, 8);font-size:20px; text-align: center;">
+																							<sup class="wi wi-celsius"></sup>
+																						</p>
+																						<p style="color: gray; font-size:12px; text-align: center;">Temperatura</p>
+																					</div>
+
+
+																					<!--HUMEDAD-->
+																					<div  class="row">
+																						<p id="HUMEDAD" style="color: #2471A3 ;font-size:20px; text-align: center;">
+																							<sup class="wi wi-humidity"></sup>
+																						</p>
+																						<p style="color: gray; font-size:12px; text-align: center;">Humedad del ambiente</p>
+																					</div>
+
+																					<!--PROFUNDIDAD-->
+																					<div class="row">
+																						<p id="PROFUNDIDAD" style="color: #2471A3 ;font-size:20px; text-align: center; margin:0;">  cm
+																							<sup class="wi wi-flood"></sup>
+																						</p>
+																						<p style="color: gray; font-size:12px; text-align:center;">Profundidad</p>
+																					</div>
+
+																					<div class="row" >
+																						<p id="HUMEDAD_SUELO" style="color:rgb(143, 28, 15); font-size:20px;  text-align: center; ">
+																							<sup class="wi wi-humidity"></sup>
+																						</p>
+																						<p style="color: gray; font-size:12px; text-align: center;">Humedad de la tierra</p>
+																					</div>
+
+																					<!--ID ARDUINO-->
+																					<div class="row">
+																						<p style="color:rgb(106, 104, 104); font-size:12px; text-align: center; margin: 25px 0px 15px;">ARDUINO 1 &nbsp;
+																							<span class="glyphicon glyphicon-import"></span>
+																						</p>
+																					</div>
+
+																					<!--MAS-->
+																					<div class="row">
+																						<a href="mediciones.php"><button style="margin-right:40px;  float:right; overflow: none; font-size: 10px;" type="button" class="btn 							btn-info">Leer mas</button></a>
+																					</div>
+
+																				</div>
+																			</li>
+
+																		</ul>
+																	</div>
+																</div>
+															</section>
+															
+														</div>
+
+													</div>
+
+													<!-- Left and right controls -->
+													<!--
+													<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+														<span class="glyphicon glyphicon-chevron-left"></span>
+														<span class="sr-only">Previous</span>
+													</a>
+													<a class="right carousel-control" href="#myCarousel" data-slide="next">
+														<span class="glyphicon glyphicon-chevron-right"></span>
+														<span class="sr-only">Next</span>
+													</a>
+
+													--><!-- CONTROLES DESHABILITADOS-->
+												</div>
+											
+										</section>	
+				</div>
+
+				<div class="row">
+					<div id="chartContainer" style="height: 370px; width: 83%;padding-left:17%; "></div>
 				</div>
 			</div>
 
@@ -885,7 +891,7 @@
 
     <!--_________________________________________________DOS___________________________________________________________________-->
 
-    <div id="chartContainer" style="height: 370px; width: 83%;padding-left:17%; "></div>
+    
 
   </main>
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

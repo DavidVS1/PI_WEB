@@ -10,7 +10,7 @@
     //$dia = "3";
 
 
-    $conn = mysqli_connect("localhost","root","","SIMP2");
+    $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 
 
     $query ="select * from mediciones where fecha order by id_mediciones DESC LIMIT 4";

@@ -49,7 +49,7 @@
 			</div>
 
 <?php
- $conn = mysqli_connect("localhost","root","","SIMP2");
+ $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
  $query ="SELECT * FROM arduinos ORDER BY id_arduinos DESC";
  $result = mysqli_query($conn, $query)
  or die("Error: ".mysqli_error($conn));

@@ -52,7 +52,7 @@
 
 <!--______________________________________________________USUARIOS______________________________________-->
 						<?php
-						 $conn = mysqli_connect("localhost","root","","SIMP2");
+						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 						 $query ="SELECT * FROM usuarios ORDER BY id_usuario DESC";
 						 $result = mysqli_query($conn, $query)
 						 or die("Error: ".mysqli_error($conn));

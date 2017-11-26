@@ -3,7 +3,7 @@
 	$iniciar = false;
 
 	try {
-		$conn = new mysqli('localhost', 'root', '', 'SIMP2');
+		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
 
 		if(!$conn->connect_error){
 			$correo = $_POST['correo'];

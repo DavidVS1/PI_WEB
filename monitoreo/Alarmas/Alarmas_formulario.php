@@ -85,7 +85,7 @@
     			<div class="col-xs-12 col-md-4 opciones">
     				<ul class="col-xs-12">
     					<li class="col-xs-6">
-    						<a class="btn btn-info" id="regresar" href="Alarmas.php">
+    						<a class="btn btn-info" id="regresar" href="../alarmas.php">
     							<span class="glyphicon glyphicon-chevron-left"></span>
     							Regresar
     						</a>

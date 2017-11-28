@@ -68,7 +68,8 @@
         }
 	}
 	if($response['done'])
-		include '../monitoreo/alarmas.php';
+//		header('Location: ../alarmas.php');
+		include 'alarmas.php';
 	else
 		include('Alarmas_formulario.php');
 ?>

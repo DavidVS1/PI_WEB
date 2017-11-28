@@ -738,7 +738,18 @@
 										</a>
 								</div>
 						</div>
+						<?php
+						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
+						 $query ="SELECT * FROM alarmas ORDER BY id DESC";
+						 $result = mysqli_query($conn, $query)
+						 or die("Error: ".mysqli_error($conn));
 
+						 $alarmas=0;
+						 while($row = mysqli_fetch_array($result)){
+							 $alarmas++;
+						 }
+
+						?>
 						<div class="col-lg-3 col-md-6">
 								<div class="panel panel-red">
 										<div class="panel-heading">
@@ -747,7 +758,7 @@
 																<i class="fa fa-bell-o fa-5x"></i>
 														</div>
 														<div class="col-xs-9 text-right">
-																<div class="huge">0</div>
+																<div class="huge"><?php echo $alarmas ?></div>
 																<div>Alertas</div>
 														</div>
 												</div>

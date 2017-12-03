@@ -55,7 +55,7 @@
 			<div id="cuadro">
 				<center><i style="font-size:125px" class="glyphicon glyphicon-map-marker"></i>
 					<div id="titulo">
-						<center><h1>Ubicación</h1></center>
+						<center><h1>Ubicación de estaciones de sensado</h1></center>
 					</div>
 
 					<div class="container">

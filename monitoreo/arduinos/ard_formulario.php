@@ -80,7 +80,7 @@
                 <small>Indique el nombre de la Estación (Arduino)</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="number" min="1" maxlength="10" name="Nombre_arduino" class="form-control" value="<?php echo $configuracion_arduinos['nombre_arduino'] ?>"  required>
+                <input type="text" min="1" maxlength="10" name="Nombre_arduino" class="form-control" value="<?php echo $configuracion_arduinos['nombre_arduino'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -89,7 +89,7 @@
                 <small>Indique la ubicación del sensor</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="number" min="1" maxlength="12"  name="Ubicacion" class="form-control" value="<?php echo $configuracion_arduinos['ubicacion'] ?>"  required>
+                <input type="text" min="1" maxlength="12"  name="Ubicacion" class="form-control" value="<?php echo $configuracion_arduinos['ubicacion'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -98,7 +98,7 @@
                 <small>Indique estado de sensor</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="number" min="1" maxlength="2"  name="Activo" class="form-control" value="<?php echo $configuracion_arduinos['activo'] ?>"  required>
+                <input type="text" min="1" maxlength="2"  name="Activo" class="form-control" value="<?php echo $configuracion_arduinos['activo'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -119,6 +119,6 @@
 </html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-<script type="text/javascript" src="Alarmas_formulario.js"></script>
+<script type="text/javascript" src="ard_formulario.js"></script>
 <script type="text/javascript" src="jquery.validate.min.js"></script>
 <link rel="stylesheet" href="ard_formulario.css">

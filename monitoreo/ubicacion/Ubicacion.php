@@ -62,7 +62,7 @@
 
 
      <div class="container">
-       <div class="col-xs-12 col-md-12 alert alert-primary" role="alert">
+       <div class="col-xs-12 col-md-12 alert alert-info" role="alert">
          <h4>Resultado</h4>
          <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>

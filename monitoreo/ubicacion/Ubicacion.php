@@ -63,7 +63,7 @@
 
      <div class="container">
        <div class="col-xs-12 col-md-12 alert alert-info" role="alert">
-         <h2>Lista de sensores</h2>
+         <h3>Lista de sensores</h3>
          <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'arón ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          en el sistema</print>

@@ -504,7 +504,7 @@
 								<ul class="nav" id="side-menu">
 										<li class="sidebar-search">
 												<div class="input-group custom-search-form">
-														<input type="text" class="form-control" placeholder="Search...">
+														<input type="text" class="form-control" placeholder="Buscar...">
 														<span class="input-group-btn">
 														<button class="btn btn-default" type="button">
 																<i class="fa fa-search"></i>
@@ -518,9 +518,6 @@
 										</li>
 										<li>
 												<a href="#"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones<span class="fa arrow"></span></a>
-										</li>
-										<li>
-												<a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
 										</li>
 								
 								</ul>
@@ -699,10 +696,10 @@
 																	<div class="col-md-2">
 																	</div>
 
-																	<div class="col-md-10" style="margin: 0; padding: 0;">
+																	<div class="col-md-8" style="margin: 0; padding: 0;">
 																		<ul>
 																			<li>
-																				<div class="col-md-8 well" style="background-color: rgb(223, 223, 223);">
+																				<div class="col-md-12 well" style="background-color: rgb(223, 223, 223);">
 
 																					<!--FECHA-->
 																					<div class="row" style="text-align: center;">

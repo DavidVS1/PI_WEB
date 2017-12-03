@@ -2,6 +2,7 @@
 <html>
  <head>
    <title>Ubicacion</title>
+   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
   <link rel="stylesheet" href="../estilos.css">
@@ -31,16 +32,17 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a href="../index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
+						<a href="../index.php"> <img style="height:51px; width: 100px;" src="../css/hub.jpg" alt=""></a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="../index.php">Incio</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="usuarios.php">Usuarios</a></li>
-								<li><a href="arduinos.php">Arduinos</a></li>
-								<li><a href="mediciones.php">Mediciones</a></li>
-								<li><a href="alarmas.php">Alarmas</a></li>
+								<li><a href="../usuarios.php">Usuarios</a></li>
+								<li><a href="../arduinos.php">Arduinos</a></li>
+								<li><a href="../mediciones.php">Mediciones</a></li>
+								<li><a href="../alarmas.php">Alarmas</a></li>
+                <li><a href="Ubicacion.php">Ubicación</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -53,7 +55,7 @@
 			<div id="cuadro">
 				<center><i style="font-size:125px"  class=""></i>
 					<div id="titulo">
-						<center><h1>Ubicacion</h1></center>
+						<center><h1>Ubicación</h1></center>
 					</div>
 
 					<div class="container">
@@ -61,7 +63,7 @@
 
      <div class="container">
        <div class="col-xs-12 col-md-12 header">
-         <h2>Ubicación de las estaciones de sensado</h2>
+         
          <small>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          en el sistema</small>
@@ -77,16 +79,16 @@
           }
           $estaciones->data_seek(0);
          ?>
-         <small>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó' : 'aron');
+         <small>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó' : 'arón');
          echo($num_activas); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          activa<?php echo($estaciones->num_rows == 1 ? '' : 's ');?>
         </small>
        </div>
-       <div class="col-xs-12 col-md-12 contenido">
-         <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-6 Mapa">
+       <div class="col-md-12 contenido">
+         <div class="col-md-4 Mapa">
            <img src="Ubicacion.png" alt="">
          </div>
-         <div class="col-xs-12 col-md-6 Estaciones">
+         <div class="col-md-8 Estaciones">
            <table class="table table-bordered">
              <thead>
                <tr>

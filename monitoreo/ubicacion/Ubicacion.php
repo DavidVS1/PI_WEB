@@ -64,7 +64,7 @@
      <div class="container">
        <div class="col-xs-12 col-md-12 alert alert-info" role="alert">
          <h2>Lista de Alertas</h2>
-         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
+         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'arón ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          en el sistema</print>
          <br>
@@ -79,9 +79,9 @@
           }
           $estaciones->data_seek(0);
          ?>
-         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó' : 'arón');
+         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'arón ');
          echo($num_activas); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
-         activa<?php echo($estaciones->num_rows == 1 ? '' : 's ');?>
+         activa<?php echo($estaciones->num_rows == 1 ? '' : 's');?>
         </p>
        </div>
        <div class="col-md-12 contenido">

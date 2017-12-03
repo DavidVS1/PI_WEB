@@ -55,7 +55,7 @@
 			<div id="cuadro">
 				<center><i style="font-size:125px" class="glyphicon glyphicon-map-marker"></i>
 					<div id="titulo">
-						<center><h1>Ubicación de estaciones de sensado</h1></center>
+						<center><h1>Ubicación de Sensores</h1></center>
 					</div>
 
 					<div class="container">
@@ -63,7 +63,7 @@
 
      <div class="container">
        <div class="col-xs-12 col-md-12 alert alert-info" role="alert">
-         <h2>Lista de Alertas</h2>
+         <h2>Lista de sensores</h2>
          <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'arón ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          en el sistema</print>

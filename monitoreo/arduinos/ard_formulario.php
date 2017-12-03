@@ -34,7 +34,7 @@
       					select
       						*
       					from
-      						alarmas_configuracion
+      						arduinos
       					where
       						id_arduinos = ".$id_arduinos;
 

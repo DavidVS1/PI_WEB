@@ -85,7 +85,7 @@
         </small>
        </div>
        <div class="col-md-12 contenido">
-         <div class="col-md-6 Mapa">
+         <div class="col-md-6 img-fluid">
            <img src="Ubicacion.png" alt="ubicacion">
          </div>
          <div class="col-md-6 Estaciones">

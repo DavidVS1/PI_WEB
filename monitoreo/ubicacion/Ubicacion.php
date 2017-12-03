@@ -53,7 +53,7 @@
 
 
 			<div id="cuadro">
-				<center><i style="font-size:125px"  class=""></i>
+				<center><i style="font-size:125px" class="glyphicon glyphicon-map-marker"></i>
 					<div id="titulo">
 						<center><h1>Ubicación</h1></center>
 					</div>
@@ -63,7 +63,7 @@
 
      <div class="container">
        <div class="col-xs-12 col-md-12 alert alert-info" role="alert">
-         <h4>Resultado</h4>
+         <h2>Lista de Alertas</h2>
          <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          en el sistema</print>

@@ -39,7 +39,8 @@
       						id_arduinos = ".$id_arduinos;
 
       				$configuracion_arduinos = $conn->query($sql)->fetch_assoc();
-				
+
+                var_dump($configuracion_arduinos);
       				}
               else
       				{

@@ -60,8 +60,6 @@
 					<center><h1>Alarmas</h1></center>
 				</div>
 
-			<div class="container">
-
 
      	<div class="container">
      		<div class="col-xs-12">

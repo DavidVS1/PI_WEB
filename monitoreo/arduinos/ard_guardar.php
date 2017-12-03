@@ -5,7 +5,7 @@
 	);
 
 	if(isset($_POST['guardar'])){
-		$id_arduinos = $_POST['Id_arduinos'];
+		$id_arduinos = $_POST['id_arduinos'];
 		$nombre_arduino =  $_POST['Nombre_arduino'];
     $ubicacion =  $_POST['Ubicacion'];
     $activo =  $_POST['Activo'];

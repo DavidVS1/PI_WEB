@@ -69,7 +69,7 @@
 	}
 	if($response['done'])
 //		header('Location: ../alarmas.php');
-		include 'alarmas.php';
+		include '../alarmas.php';
 	else
 		include('Alarmas_formulario.php');
 ?>

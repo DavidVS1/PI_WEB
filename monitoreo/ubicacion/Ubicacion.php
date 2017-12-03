@@ -12,7 +12,7 @@
      <?php
 
      	try {
-     		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'pi');
+     		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
 
      		if(!$conn->connect_error){
      			$sql = "select *

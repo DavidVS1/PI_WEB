@@ -85,8 +85,8 @@
         </small>
        </div>
        <div class="col-md-12 contenido">
-         <div class="col-md-6 img-fluid">
-           <img src="Ubicacion.png" alt="ubicacion">
+         <div class="col-md-6">
+           <img src="Ubicacion.png" alt="ubicacion" class="img-responsive">
          </div>
          <div class="col-md-6 Estaciones">
            <table class="table table-bordered">

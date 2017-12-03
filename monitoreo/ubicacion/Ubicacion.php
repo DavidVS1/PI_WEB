@@ -11,7 +11,7 @@
    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <!--<script type="text/javascript" src="assets/js/libs/base.js"></script>-->
  </head>
- <body style='background-image: url("../aaa.jpg");'>
+ <body style='background-image: url("../css/aaa.jpg");'>
    <main>
      <?php
 
@@ -32,7 +32,7 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
+						<a href="../index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="../index.php">Incio</a></li>

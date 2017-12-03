@@ -73,6 +73,18 @@
      				</div>
      			<?php endif; ?>
     			<form name="frm_alarma" action="ard_guardar.php" method="post" class="col-xs-12 form-horizontal">
+            
+
+
+            <div class="form-group">
+              <div class="col-xs-12 col-md-12">
+                <label for="">ID</label>
+                <small>ID arduinos</small>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <input type="text" min="1" maxlength="10" name="id_arduinos" class="form-control" value="<?php echo $configuracion_arduinos['id_arduinos'] ?>"  required>
+              </div>
+            </div>
               
             <div class="form-group">
               <div class="col-xs-12 col-md-12">

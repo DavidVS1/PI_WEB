@@ -90,10 +90,10 @@
      				<thead>
      					<tr>
      						<td class="text-center">#</td>
-     						<td class="text-center">Id</td>
-     						<td>Estación</td>
-     						<td>Sensor</td>
-     						<td class="text-center">Destinatario</td>
+     						<td class="text-center">ID_Arduino</td>
+     						<td>Nombre arduino</td>
+     						<td>Ubicación</td>
+     						<td class="text-center">Activo</td>
      						<td class="text-center">Acciones</td>
      					</tr>
      				</thead>

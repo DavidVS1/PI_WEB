@@ -11,7 +11,13 @@
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <!--<script type="text/javascript" src="assets/js/libs/base.js"></script>-->
- </head>
+
+
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+
+</head>
  <body style='background-image: url("../css/aaa.jpg");'>
    <main>
      <?php
@@ -85,7 +91,7 @@
      					<?php echo($response['message']); ?>
      				</div>
      			<?php endif; ?>
-     			<table class="table table-bordered">
+     			<table id="alarmas_tabla" class="table table-bordered">
      				<thead>
      					<tr>
      						<td class="text-center">#</td>
@@ -134,3 +140,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 <script type="text/javascript" src="Alarmas/Alarmas.js"></script>
+
+<script>
+	$(document).ready(function(){
+		 $('#alarmas_tabla').DataTable();
+	});
+</script>

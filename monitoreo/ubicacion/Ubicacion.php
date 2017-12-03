@@ -62,11 +62,11 @@
 
 
      <div class="container">
-       <div class="col-xs-12 col-md-12 header">
-         
-         <small>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
+       <div class="col-xs-12 col-md-12 alert alert-primary" role="alert">
+         <h4>Resultado</h4>
+         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó ' : 'aron ');
          echo($estaciones->num_rows); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
-         en el sistema</small>
+         en el sistema</print>
          <br>
          <?php
           $num_activas = 0;
@@ -79,10 +79,10 @@
           }
           $estaciones->data_seek(0);
          ?>
-         <small>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó' : 'arón');
+         <p>Se encontr<?php echo($estaciones->num_rows == 1 ? 'ó' : 'arón');
          echo($num_activas); ?> estaci<?php echo($estaciones->num_rows == 1 ? 'ón ' : 'ones ');?>
          activa<?php echo($estaciones->num_rows == 1 ? '' : 's ');?>
-        </small>
+        </p>
        </div>
        <div class="col-md-12 contenido">
          <div class="col-md-6">

@@ -85,10 +85,10 @@
         </small>
        </div>
        <div class="col-md-12 contenido">
-         <div class="col-md-4 Mapa">
-           <img src="Ubicacion.png" alt="">
+         <div class="col-md-6 Mapa">
+           <img src="Ubicacion.png" alt="ubicacion">
          </div>
-         <div class="col-md-8 Estaciones">
+         <div class="col-md-6 Estaciones">
            <table class="table table-bordered">
              <thead>
                <tr>

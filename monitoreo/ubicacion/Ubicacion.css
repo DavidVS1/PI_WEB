@@ -14,17 +14,9 @@
   main div .contenido div{
     margin-bottom: 5em;
   }
-  main div .Mapa{
-    height: 300px;
-    width: 50%;
-		align-items: center;
-		text-align: center;
-  }
-  main div img{
-    height: 100%;
-    width: 100%;
 
+	.Mapa img{
+    width: 100%;
   }
-  main div .Estaciones{
  
-  }
+	

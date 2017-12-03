@@ -517,7 +517,7 @@
 												<a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
 										</li>
 										<li>
-												<a href="#"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones<span class="fa arrow"></span></a>
+												<a href="/ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones<span class="fa arrow"></span></a>
 										</li>
 								
 								</ul>
@@ -530,7 +530,7 @@
 		<div id="page-wrapper">
 				<div class="row">
 						<div class="col-lg-12">
-								<h2 class="page-header">S.I.M.P</h2>
+								<h3 class="page-header">Administración Principal</h3>
 						</div>
 						<!-- /.col-lg-12 -->
 				</div>

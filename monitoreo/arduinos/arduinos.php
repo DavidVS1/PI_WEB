@@ -110,10 +110,10 @@
      								<td><?php echo $row['ubicacion']; ?></td>
      								<td class="text-center"><?php echo(($row['activo'])) ?></td>
      								<td class="text-center">
-     									<a href="ard_formulario.php?id=<?php echo $row['id_arduinos'] ?>" class="btn btn-primary btn-sm">
+     									<a href="ard_formulario.php?id_arduinos=<?php echo $row['id_arduinos'] ?>" class="btn btn-primary btn-sm">
      										Editar
      									</a>
-                      					<a href="ard_eliminar.php?id=<?php echo $row['id_arduinos'] ?>" class="btn btn-danger btn-sm">
+                      					<a href="ard_eliminar.php?id_arduinos=<?php echo $row['id_arduinos'] ?>" class="btn btn-danger btn-sm">
                         					Eliminar
                       					</a>
      								</td>

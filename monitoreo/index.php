@@ -206,7 +206,7 @@
   <script>
 	var datos=0;
 	var nombre_icono="";
-
+	
 
 	function set_icon(temperatura){
 		 var temperatura_int = parseInt(temperatura);
@@ -245,7 +245,6 @@
 
 
 		 document.getElementById("ICONO").className = 'wi '+nombre_icono;
-
 		 document.getElementById("TEMPERATURA").innerHTML = datos[3]+'  <sup class="wi wi-celsius"></sup>';
 		 document.getElementById("HUMEDAD").innerHTML = datos[2]+'  <sup class="wi wi-humidity"></sup>';
 		 document.getElementById("PROFUNDIDAD").innerHTML = datos[1]+'  cm  <sup class="wi wi-flood"></sup>';
@@ -517,9 +516,8 @@
 												<a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
 										</li>
 										<li>
-												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones<span class="fa arrow"></span></a>
+												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
 										</li>
-								
 								</ul>
 
 						</div>

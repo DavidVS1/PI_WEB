@@ -49,7 +49,7 @@
 						<center><h1>Mediciones</h1></center>
 					</div>
 
-					<div class="container">
+					
 
 <?php
  $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");

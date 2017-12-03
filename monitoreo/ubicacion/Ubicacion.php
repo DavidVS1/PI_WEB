@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
  <head>
-   <title>PHP</title>
+   <title>Ubicacion</title>
    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link rel="stylesheet" href="Ubicacion.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <!--<script type="text/javascript" src="assets/js/libs/base.js"></script>-->
  </head>
- <body>
+ <body style='background-image: url("../css/aaa.jpg");'>
    <main>
      <?php
 
@@ -21,6 +25,40 @@
      		}
      	} catch (Exception $e){}
      ?>
+
+<div class="header">
+
+
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="../monitoreo/index.php">Incio</a></li>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="usuarios.php">Usuarios</a></li>
+								<li><a href="arduinos.php">Arduinos</a></li>
+								<li><a href="mediciones.php">Mediciones</a></li>
+								<li><a href="alarmas.php">Alarmas</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			</div>
+
+
+			<div id="cuadro">
+				<center><i style="font-size:125px"  class=""></i>
+					<div id="titulo">
+						<center><h1>Ubicacion</h1></center>
+					</div>
+
+					<div class="container">
+
 
      <div class="container">
        <div class="col-xs-12 col-md-12 header">
@@ -89,5 +127,3 @@
    </footer>
  </body>
 </html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
-<link rel="stylesheet" href="Ubicacion.css">

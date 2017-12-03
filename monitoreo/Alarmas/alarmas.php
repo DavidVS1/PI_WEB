@@ -2,17 +2,17 @@
 <html>
  <head>
    <title>Alarmas</title>
-   <link rel="stylesheet" href="css/estilos.css">
+   <link rel="stylesheet" href="../css/estilos.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="refresh" content="60">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <link rel="stylesheet" href="css/weather-icons.css">
-   <link rel="stylesheet" href="css/weather-icons-wind.css">
+   <link rel="stylesheet" href="../css/weather-icons.css">
+   <link rel="stylesheet" href="../css/weather-icons-wind.css">
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <!--<script type="text/javascript" src="assets/js/libs/base.js"></script>-->
  </head>
- <body style='background-image: url("css/aaa.jpg");'>
+ <body style='background-image: url("../css/aaa.jpg");'>
    <main>
      <?php
 
@@ -44,10 +44,10 @@
 									<li class="active"><a href="index.php">Incio</a></li>
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li><a href="usuarios.php">Usuarios</a></li>
-											<li><a href="arduinos.php">Arduinos</a></li>
-											<li><a href="mediciones.php">Mediciones</a></li>
-											<li><a href="alarmas.php">Alarmas</a></li>
+											<li><a href="../usuarios.php">Usuarios</a></li>
+											<li><a href="../arduinos.php">Arduinos</a></li>
+											<li><a href="../mediciones.php">Mediciones</a></li>
+											<li><a href="../alarmas.php">Alarmas</a></li>
 										</ul>
 									</li>
 								</ul>

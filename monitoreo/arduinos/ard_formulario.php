@@ -82,7 +82,7 @@
                 <small>ID arduinos</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="10" name="id_arduinos" class="form-control" value="<?php echo $configuracion_arduinos['id_arduinos'] ?>"  required>
+                <input type="number" min="1" maxlength="10" name="Id_arduinos" class="form-control" value="<?php echo $configuracion_arduinos['id_arduinos'] ?>"  required>
               </div>
             </div>
               

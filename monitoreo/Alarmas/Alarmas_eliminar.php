@@ -17,5 +17,5 @@
   	} catch (Exception $e){}
 
 
-	include '../alarmas.php';
+	include 'alarmas.php';
 ?>

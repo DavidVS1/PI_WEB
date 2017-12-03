@@ -33,7 +33,6 @@
 								<li><a href="arduinos.php">Arduinos</a></li>
 								<li><a href="mediciones.php">Mediciones</a></li>
 								<li><a href="alarmas.php">Alarmas</a></li>
-								<li><a href="ubicacion/Ubicacion.php">Ubicación</a></li>
 							</ul>
 						</li>
 					</ul>

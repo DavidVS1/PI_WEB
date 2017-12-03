@@ -38,10 +38,10 @@
 						<nav class="navbar navbar-inverse">
 							<div class="container-fluid">
 								<div class="navbar-header">
-									<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
+									<a href="../index.php"> <img style="height:51px; width: 100px;" src="../css/hub.jpg" alt=""></a>
 								</div>
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="index.php">Incio</a></li>
+									<li class="active"><a href="../index.php">Incio</a></li>
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li><a href="../usuarios.php">Usuarios</a></li>

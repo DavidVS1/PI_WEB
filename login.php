@@ -9,7 +9,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>JQuery</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="monitoreo/css/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="monitoreo/js/jquery.js"></script>
@@ -18,6 +18,9 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/views/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
   </head>
   <body>
 

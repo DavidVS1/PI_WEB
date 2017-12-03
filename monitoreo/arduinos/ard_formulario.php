@@ -26,9 +26,9 @@
           {
           
             //Si es editar
-      			if(isset($_GET['id']))
+      			if(isset($_GET['id_arduinos']))
             {
-      				$id = $_GET['id'];
+      				$id_arduinos = $_GET['id_arduinos'];
 
       				$sql = "
       					select

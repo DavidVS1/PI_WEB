@@ -19,7 +19,7 @@
     					if ($id_arduinos == 0){
                 //Es Nuevo
     						$sql = "insert into	arduinos
-    									(nombre_arduinos, ubicacion, activo)
+    									(nombre_arduino, ubicacion, activo)
     									values
     										(
     											'".$nombre_arduino."',

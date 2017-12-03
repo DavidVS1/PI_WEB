@@ -97,7 +97,7 @@
      						<td class="text-center">Acciones</td>
      					</tr>
      				</thead>
-     				<tbody>
+     					<tbody>
      					<?php
      						$num_rows = 0;
      						while($row = $arduinos->fetch_assoc()):

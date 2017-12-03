@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
  <head>
-   <title>Alarmas</title>
+   <title>Arduinos</title>
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
    <link rel="stylesheet" href="../css/estilos.css">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta http-equiv="refresh" content="60">
@@ -26,14 +27,8 @@
      		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
 
      		if(!$conn->connect_error){
-     			$sql = "select *
-           from alarmas_configuracion
-           join arduinos
-           on (alarmas_configuracion.id_arduino=arduinos.id_arduinos)
-           join sensores
-           on (alarmas_configuracion.id_sensor=sensores.id_sensores)
-           ";
-     			$alarmas = $conn->query($sql);
+     			$sql = "SELECT * FROM arduinos ORDER BY id_arduinos DESC";
+     			$arduinos = $conn->query($sql);
      		}
      	} catch (Exception $e){}
      ?>
@@ -63,7 +58,7 @@
 		
 			<center><i style="font-size:125px"  class="wi wi-time-2"></i>
 				<div id="titulo">
-					<center><h1>Alarmas</h1></center>
+					<center><h1>Arduinos</h1></center>
 				</div>
 
 			<div class="container">
@@ -77,9 +72,9 @@
      			<div class="col-xs-12 col-md-4 opciones">
      				<ul class="col-xs-12">
      					<li class="col-xs-6">
-     						<a class="btn btn-info" href="Alarmas_formulario.php">
+     						<a class="btn btn-info" href="ard_formulario.php">
      							<span class="glyphicon glyphicon-plus"></span>
-     							Crear nueva alarma
+     							Crear nueva estación
      						</a>
      					</li>
      				</ul>
@@ -91,7 +86,7 @@
      					<?php echo($response['message']); ?>
      				</div>
      			<?php endif; ?>
-     			<table id="alarmas_tabla" class="table table-bordered">
+     			<table id="ard_tabla" class="table table-bordered">
      				<thead>
      					<tr>
      						<td class="text-center">#</td>
@@ -105,22 +100,20 @@
      				<tbody>
      					<?php
      						$num_rows = 0;
-     						while($row = $alarmas->fetch_assoc()):
+     						while($row = $arduinos->fetch_assoc()):
      							$num_rows++;
      					?>
      							<tr>
      								<td class="text-center"><?php echo $num_rows; ?></td>
-     								<td class="text-center"><?php echo $row['id']; ?></td>
+     								<td class="text-center"><?php echo $row['id_arduinos']; ?></td>
      								<td><?php echo $row['nombre_arduino']; ?></td>
-     								<td><?php echo $row['nombre_sensor']; ?></td>
+     								<td><?php echo $row['ubicacion']; ?></td>
+     								<td class="text-center"><?php echo(($row['activo'])) ?></td>
      								<td class="text-center">
-     										<?php echo(($row['correo'])) ?>
-     								</td>
-     								<td class="text-center">
-     									<a href="Alarmas_formulario.php?id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm">
+     									<a href="ard_formulario.php?id=<?php echo $row['id_arduinos'] ?>" class="btn btn-primary btn-sm">
      										Editar
      									</a>
-                      					<a href="Alarmas_eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm">
+                      					<a href="ard_eliminar.php?id=<?php echo $row['id_arduinos'] ?>" class="btn btn-danger btn-sm">
                         					Eliminar
                       					</a>
      								</td>
@@ -139,10 +132,10 @@
 </html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-<script type="text/javascript" src="Alarmas/Alarmas.js"></script>
+<script type="text/javascript" src="arduinos/arduino.js"></script>
 
 <script>
 	$(document).ready(function(){
-		 $('#alarmas_tabla').DataTable();
+		 $('#ard_tabla').DataTable();
 	});
 </script>

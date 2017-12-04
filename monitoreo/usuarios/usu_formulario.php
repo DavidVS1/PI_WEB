@@ -12,11 +12,12 @@
       <?php
 
         //Declaracion ARRAY
-        $configuracion_arduinos = array(
-          'id_arduinos' => 0,
-          'nombre_arduino' => '',
-          'ubicacion' => '',
-          'activo' => 0
+        $configuracion_usuario = array(
+          'id_usuario' => 0,
+          'nombre' => '',
+          'clave' => '',
+          'correo' => '',
+          'super_usuario' => 0
         );
 
         try {
@@ -26,24 +27,24 @@
           {
           
             //Si es editar
-      			if(isset($_GET['id_arduinos']))
+      			if(isset($_GET['id_usuario']))
             {
-      				$id_arduinos = $_GET['id_arduinos'];
+      				$id_usuario = $_GET['id_usuario'];
 
       				$sql = "
       					select
       						*
       					from
-      						arduinos
+      						usuarios
       					where
-      						id_arduinos = ".$id_arduinos;
+      						id_usuario = ".$id_usuario;
 
       				$configuracion_arduinos = $conn->query($sql)->fetch_assoc();
 
       				}
               else
       				{
-      					unset($id_arduinos);
+      					unset($id_usuario);
       				}
 
       			}
@@ -52,13 +53,13 @@
       <div class="container">
     		<div class="col-xs-12 encabezado">
     			<div class="col-xs-12 col-md-8 header">
-    				<h2><?php echo((isset($id_arduinos)) ? 'Modificar' : 'Nueva'); ?> Estación</h2>
+    				<h2><?php echo((isset($id_usuario)) ? 'Modificar' : 'Nueva'); ?> Usuario</h2>
     				<small>Ingrese todos los datos solicitados</small>
     			</div>
     			<div class="col-xs-12 col-md-4 opciones">
     				<ul class="col-xs-12">
     					<li class="col-xs-6">
-    						<a class="btn btn-info" id="regresar" href="arduinos.php">
+    						<a class="btn btn-info" id="regresar" href="usuarios.php">
     							<span class="glyphicon glyphicon-chevron-left"></span>
     							Regresar
     						</a>
@@ -72,7 +73,7 @@
      					<?php echo($validacion_datos['message']); ?>
      				</div>
      			<?php endif; ?>
-    			<form name="frm_alarma" action="ard_guardar.php" method="post" class="col-xs-12 form-horizontal">
+    			<form name="frm_alarma" action="usu_guardar.php" method="post" class="col-xs-12 form-horizontal">
             
 
 
@@ -80,35 +81,44 @@
               <div class="col-xs-12 col-md-12">
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="hidden"  name="id_arduinos" class="form-control" readonly value="<?php echo $configuracion_arduinos['id_arduinos'] ?>">
+                <input type="hidden"  name="id_usuario" class="form-control" readonly value="<?php echo $configuracion_usuario['id_usuario'] ?>">
               </div>
             </div>
               
             <div class="form-group">
               <div class="col-xs-12 col-md-12">
-                <label for="">Nombre de Estación</label>
-                <small>Indique el nombre de la Estación (Arduino)</small>
+                <label for="">Nombre de Usuario</label>
+                <small>Indique el nombre del usuario</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="10" name="nombre_arduino" class="form-control" value="<?php echo $configuracion_arduinos['nombre_arduino'] ?>"  required>
+                <input type="text" min="1" maxlength="15" name="nombre_usuario" class="form-control" value="<?php echo $configuracion_usuario['nombre'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
               <div class="col-xs-12 col-md-12">
-                <label for="">Ubicación</label>
-                <small>Indique la ubicación del sensor</small>
+                <label for="">Contraseña</label>
+                <small>Indique la clave de acceso para el usuario </small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="12"  name="ubicacion" class="form-control" value="<?php echo $configuracion_arduinos['ubicacion'] ?>"  required>
+                <input type="text" min="1" maxlength="12"  name="clave" class="form-control" value="<?php echo $configuracion_usuario['clave'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
               <div class="col-xs-12 col-md-12">
-                <label for="">Activo</label>
-                <small>Indique estado de sensor</small>
+                <label for="">Correo</label>
+                <small>Indique un correo</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="number" min="0" max="1" maxlength="5"  name="activo" class="form-control" value="<?php echo $configuracion_arduinos['activo'] ?>"  required>
+                <input type="text" min="1" maxlength="15"  name="correo" class="form-control" value="<?php echo $configuracion_usuario['correo'] ?>"  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-12 col-md-12">
+                <label for="">Privilegios</label>
+                <small>Indique [0 - Usuario Trabajador] o [1 - Usuario Administrador] </small>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <input type="number" min="0" max="1" maxlength="5"  name="super_usuario" class="form-control" value="<?php echo $configuracion_usuario['super_usuario'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -129,6 +139,6 @@
 </html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
-<script type="text/javascript" src="ard_formulario.js"></script>
+<script type="text/javascript" src="usu_formulario.js"></script>
 <script type="text/javascript" src="jquery.validate.min.js"></script>
-<link rel="stylesheet" href="ard_formulario.css">
+<link rel="stylesheet" href="usu_formulario.css">

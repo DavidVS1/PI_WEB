@@ -1,11 +1,11 @@
 <?php
 
-  	$id_arduinos = $_GET['id_arduinos'];
+		$id_usuario = $_GET['id_usuario'];
   	try {
   		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
 
   		if(!$conn->connect_error){
-  				$sql = "delete from arduinos where id_arduinos = ".$id_arduinos;
+  				$sql = "delete from usuarios where id_usuario = ".$id_usuario;
   				$sql_respuesta = $conn->query($sql);
   				if($sql_respuesta)
           {
@@ -17,5 +17,5 @@
   	} catch (Exception $e){}
 
 
-	include 'arduinos.php';
+	include 'usuarios.php';
 ?>

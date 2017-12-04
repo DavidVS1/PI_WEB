@@ -9,42 +9,45 @@
 
 	$response = array(
 		'done' => false,
-		'message' => 'No se pudo guardar la configuración de la alarma'
+		'message' => 'No se pudo guardar la configuración del usuario'
 	);
 
 	if(isset($_POST['guardar'])){
-		$id_arduinos = $_POST['id_arduinos'];
-		$nombre_arduino =  $_POST['nombre_arduino'];
-    $ubicacion =  $_POST['ubicacion'];
-    $activo =  $_POST['activo'];
+		$id_usuario = $_POST['id_usuario'];
+		$nombre =  $_POST['nombre'];
+    $clave =  $_POST['clave'];
+		$correo =  $_POST['correo'];
+		$super_usuario =  $_POST['super_usuario'];
   
-			if ($nombre_arduino != '' && $ubicacion != '' && $activo != '')
+			if ($nombre != '' && $clave != '' && $correo != '' && $super_usuario != 0)
       {
           try{
 
             $conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
     				if(!$conn->connect_error){
-    					if ($id_arduinos == 0){
+    					if ($id_usuario == 0){
                 //Es Nuevo
-    						$sql = "insert into	arduinos
-    									(nombre_arduino, ubicacion, activo)
+    						$sql = "insert into	usuarios
+    									(nombre, clave, correo, super_usuario)
     									values
     										(
-    											'".$nombre_arduino."',
-    											'".$ubicacion."',
-    											'".$activo."'
+    											'".$nombre."',
+													'".$clave."',
+													'".$correo."',
+    											'".$super_usuario."'
     										)";
     					}else{
                 //Es Editar
     						$sql = "
     							update
-    								arduinos
+    								usuarios
     							set
-    								nombre_arduinos = '".$nombre_arduino."',
-										ubicacion = '".$ubicacion."',
-                    activo = '".$activo."'
+    								nombre = '".$nombre."',
+										clave = '".$clave."',
+										correo = '".$correo."',
+                    super_usuario = '".$super_usuario."'
     							where
-    								id_arduinos = '".$id_arduinos."'
+    								id_usuario = '".$id_usuario."'
     						";
     					}
 
@@ -52,7 +55,7 @@
     					if($sql_respuesta)
               {
     						$response['done'] = true;
-    						$response['message'] = 'La estación se guardó correctamente en el sistema';
+    						$response['message'] = 'El usuario ha sido guardado exitosamente';
     					}
     				}
 
@@ -66,9 +69,9 @@
 			
 	}
 	if($response['done'])
-		include 'arduinos.php';
+		include 'usuarios.php';
 	else
-		include('ard_formulario.php');
+		include('usu_formulario.php');
 
 	
 ?>

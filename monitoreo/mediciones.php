@@ -39,7 +39,7 @@
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>Cerrar Sesión</a></li>
+						<li><a href="../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>  Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</nav>

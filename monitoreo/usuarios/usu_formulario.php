@@ -53,7 +53,7 @@
       <div class="container">
     		<div class="col-xs-12 encabezado">
     			<div class="col-xs-12 col-md-8 header">
-    				<h2><?php echo((isset($id_usuario)) ? 'Modificar' : 'Nueva'); ?> Usuario</h2>
+    				<h2><?php echo((isset($id_usuario)) ? 'Modificar' : 'Nuevo'); ?> Usuario</h2>
     				<small>Ingrese todos los datos solicitados</small>
     			</div>
     			<div class="col-xs-12 col-md-4 opciones">

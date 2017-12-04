@@ -358,7 +358,7 @@
 						<div class="sidebar-nav navbar-collapse">
 								<ul class="nav" id="side-menu">
 										<li>
-												<a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
+												<a href="index2.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
 										</li>
 										<li>
 												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
@@ -409,7 +409,7 @@
 														</div>
 												</div>
 										</div>
-										<a href="medicione2.php">
+										<a href="mediciones2.php">
 												<div class="panel-footer">
 														<span class="pull-left">Ver detalles</span>
 														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -501,7 +501,7 @@
 
 																					<!--MAS-->
 																					<div class="row">
-																						<a href="mediciones.php"><button style="margin-right:40px;  float:right; overflow: none; font-size: 10px;" type="button" class="btn 							btn-info">Leer mas</button></a>
+																						<a href="mediciones2.php"><button style="margin-right:40px;  float:right; overflow: none; font-size: 10px;" type="button" class="btn 							btn-info">Leer mas</button></a>
 																					</div>
 
 																				</div>

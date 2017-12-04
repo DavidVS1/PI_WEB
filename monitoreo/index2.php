@@ -465,7 +465,7 @@
 
 						?>
 						<div class ="col-md-2"></div>
-						<div class="cencol-lg-4 col-md-4">
+						<div class="cencol-lg-8 col-md-8">
 								<div class="panel panel-green">
 										<div class="panel-heading">
 												<div class="row">

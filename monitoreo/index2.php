@@ -403,11 +403,6 @@
 										<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
 								</a>
 								<ul class="dropdown-menu dropdown-user">
-										<li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil de usuario</a>
-										</li>
-										<li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuración</a>
-										</li>
-										<li class="divider"></li>
 										<li><a href="../cerrar_sesion.php"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
 										</li>
 								</ul>

@@ -373,7 +373,7 @@
 											<a href="arduinos/arduinos.php"><i class = "fa fa-bug"></i> Arduinos</a>
 										</li>
 										<li>
-											<a href="Alarmas/alarmas.php"><i class = "fa fa-bell-o"></i> Alertas</a>
+											<a href="Alarmas/alarmas.php"><i class = "fa fa-bell-o"></i> Alarmas</a>
 										</li>
 										<li>
 											<a href="reportes.php"><i class = "fa fa-bullhorn"></i> Reportes del Sistema</a>
@@ -521,7 +521,7 @@
 														</div>
 														<div class="col-xs-9 text-right">
 																<div class="huge"><?php echo $alarmas ?></div>
-																<div>Alertas</div>
+																<div>Alarmas</div>
 														</div>
 												</div>
 										</div>

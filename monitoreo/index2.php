@@ -361,7 +361,7 @@
 												<a href="index2.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
 										</li>
 										<li>
-												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
+												<a href="ubicacion2/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
 										</li>
 										<li>
 											<a href="mediciones2.php"><i class = "wi wi-earthquake"></i> Mediciones</a>

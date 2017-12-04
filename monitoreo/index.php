@@ -364,19 +364,19 @@
 												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
 										</li>
 										<li>
-											<a href="#"><i class = ""></i> Usuarios</a>
+											<a href="#"><i class = "fa fa-users"></i> Usuarios</a>
 										</li>
 										<li>
-											<a href="#"><i class = ""></i> Mediciones</a>
+											<a href="#"><i class = "wi wi-earthquake"></i> Mediciones</a>
 										</li>
 										<li>
-											<a href="#"><i class = ""></i> Arduinos</a>
+											<a href="#"><i class = "fa fa-bug"></i> Arduinos</a>
 										</li>
 										<li>
-											<a href="#"><i class = ""></i> Alertass</a>
+											<a href="#"><i class = "fa fa-bell-o"></i> Alertas</a>
 										</li>
 										<li>
-											<a href="#"><i class = ""></i> Reportes del sistema</a>
+											<a href="#"><i class = "fa fa-bullhorn"></i> Reportes del Sistema</a>
 										</li>
 								</ul>
 

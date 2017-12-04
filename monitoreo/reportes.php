@@ -34,7 +34,7 @@
 								<li><a href="arduinos/arduinos.php"><span class="glyphicon glyphicon-hdd"></span>   Arduinos</a></li>
 								<li><a href="mediciones.php"><span class="glyphicon glyphicon-list-alt"></span>   Mediciones</a></li>
 								<li><a href="Alarmas/alarmas.php"><span class="glyphicon glyphicon-bell"></span>   Alarmas</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span>   Reportes</a></li>
+								<li><a href="reportes.php"><span class="glyphicon glyphicon-bullhorn"></span>   Reportes</a></li>
 							</ul>
 						</li>
 
@@ -49,7 +49,7 @@
 
 
 			<div id="cuadro">
-				<center><i style="font-size:125px"  class="fa fa-bullhorn"></i>
+				<center><i style="font-size:125px"  class="glyphicon glyphicon-bullhorn"></i>
 					<div id="titulo">
 						<center><h1>Reportes</h1></center>
 					</div>

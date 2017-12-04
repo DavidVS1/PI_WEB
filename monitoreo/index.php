@@ -509,7 +509,7 @@
 
 						?>
 						<div class="col-md-6">
-								<div class="panel panel-blue">
+								<div class="panel panel-info">
 										<div class="panel-heading">
 												<div class="row">
 														<div class="col-xs-3">

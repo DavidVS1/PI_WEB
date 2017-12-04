@@ -333,7 +333,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.php">S.I.M.P</a>
+						<a class="navbar-brand" href="index2.php">S.I.M.P</a>
 				</div>
 				<!-- /.navbar-header -->
 
@@ -465,7 +465,7 @@
 
 						?>
 						<div class ="col-md-2"></div>
-						<div class="cencol-lg-8 col-md-8">
+						<div class="col-lg-8 col-md-8">
 								<div class="panel panel-green">
 										<div class="panel-heading">
 												<div class="row">

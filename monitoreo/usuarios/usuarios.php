@@ -72,7 +72,7 @@
      			<div class="col-xs-12 col-md-4 opciones">
      				<ul class="col-xs-12">
      					<li class="col-xs-6">
-     						<a class="btn btn-info" href="ard_formulario.php">
+     						<a class="btn btn-info" href="usu_formulario.php">
      							<span class="glyphicon glyphicon-plus"></span>
      							Crear nuevo usuario
      						</a>

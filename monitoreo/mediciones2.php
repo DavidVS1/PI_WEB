@@ -68,7 +68,6 @@
 																			<td>Valor</td>
 																			<td>Unidad</td>
 																			<td>Fecha</td>
-																			<td>Accion</td>
 																 </tr>
 														</thead>
 														<?php
@@ -82,12 +81,6 @@
 																			<td> <?php echo $row["valor"]; ?> </td>
 																			<td> <?php echo $row["unidad"]; ?> </td>
 																			<td> <?php echo $row["fecha"]; ?> </td>
-																			<td>
-																					<a href="pa_eliminar.php?id=<?php echo $row['pa_id'] ?>" class="btn btn-danger btn-sm">
-																						Eliminar
-																					</a>
-
-																			</td>
 																 </tr>
 														<?php
 															endwhile;

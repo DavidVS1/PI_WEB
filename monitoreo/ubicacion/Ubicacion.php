@@ -10,6 +10,11 @@
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <!--<script type="text/javascript" src="assets/js/libs/base.js"></script>-->
+
+
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
  </head>
  <body style='background-image: url("../css/aaa.jpg");'>
    <main>
@@ -92,7 +97,7 @@
            <img src="Ubicacion.png" alt="ubicacion" class="img-thumbnail">
          </div>
          <div class="col-md-6 Estaciones">
-           <table class="table table-bordered">
+           <table id="tabla_ub" class="table table-bordered">
              <thead>
                <tr>
                  <td class="text-center">#</td>
@@ -129,5 +134,10 @@
    </main>
    <footer>
    </footer>
+      <script>
+      $(document).ready(function(){
+        $('#tabla_ub').DataTable();
+      });
+      </script>
  </body>
 </html>

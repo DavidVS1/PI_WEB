@@ -57,10 +57,10 @@
 							<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>   Cerrar Sesión</a></li>
 						</ul>
 					</div>
-	 </nav>
+	 				</nav>
 			</div>
 		
-			<center><i style="font-size:125px"  class="fa fa-bug"></i>
+			<center><i style="font-size:125px"  class="glyphicon glyphicon-hdd"></i>
 				<div id="titulo">
 					<center><h1>Arduinos</h1></center>
 				</div>

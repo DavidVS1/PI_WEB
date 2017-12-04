@@ -50,16 +50,16 @@
 									<li class="active"><a href="../index.php">Incio</a></li>
 									<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<li><a href="../usuarios.php"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
-											<li><a href="../arduinos.php"><span class="glyphicon glyphicon-hdd"></span> Arduinos</a></li>
-											<li><a href="../mediciones.php"><span class="glyphicon glyphicon-list-alt"></span> Mediciones</a></li>
-											<li><a href="../alarmas.php"><span class="glyphicon glyphicon-bell"></span> Alarmas</a></li>
-											<li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span> Reportes</a></li>
+											<li><a href="../usuarios.php"><span class="glyphicon glyphicon-user"></span>   Usuarios</a></li>
+											<li><a href="../arduinos.php"><span class="glyphicon glyphicon-hdd"></span>   Arduinos</a></li>
+											<li><a href="../mediciones.php"><span class="glyphicon glyphicon-list-alt"></span>   Mediciones</a></li>
+											<li><a href="../alarmas.php"><span class="glyphicon glyphicon-bell"></span>   Alarmas</a></li>
+											<li><a href="#"><span class="glyphicon glyphicon-bullhorn"></span>   Reportes</a></li>
 										</ul>
 									</li>
 								</ul>
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>  Cerrar Sesión</a></li>
+									<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>   Cerrar Sesión</a></li>
 								</ul>
 							</div>
 						</nav>

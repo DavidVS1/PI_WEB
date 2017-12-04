@@ -36,6 +36,10 @@
 								<li><a href="Alarmas/alarmas.php">Alarmas</a></li>
 							</ul>
 						</li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../cerrar_sesion.php">Cerrar Sesión</a></li>
 					</ul>
 				</div>
 			</nav>

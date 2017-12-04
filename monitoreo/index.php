@@ -363,6 +363,21 @@
 										<li>
 												<a href="ubicacion/Ubicacion.php"><i class="fa fa-location-arrow fa-fw"></i> Ubicación de Estaciones</a>
 										</li>
+										<li>
+											<a href="#"><i class = ""></i> Usuarios</a>
+										</li>
+										<li>
+											<a href="#"><i class = ""></i> Mediciones</a>
+										</li>
+										<li>
+											<a href="#"><i class = ""></i> Arduinos</a>
+										</li>
+										<li>
+											<a href="#"><i class = ""></i> Alertass</a>
+										</li>
+										<li>
+											<a href="#"><i class = ""></i> Reportes del sistema</a>
+										</li>
 								</ul>
 
 						</div>

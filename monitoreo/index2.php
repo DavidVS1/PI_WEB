@@ -464,7 +464,7 @@
 						 }
 
 						?>
-						<div class="col-lg-3 col-md-6">
+						<div class="cencol-lg-3 col-md-6" style = "left-padding: 50%;" >
 								<div class="panel panel-green">
 										<div class="panel-heading">
 												<div class="row">

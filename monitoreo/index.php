@@ -402,7 +402,7 @@
 				?>
 				<!-- /.row -->
 				<div class="row">
-						<div class="col-lg-3 col-md-6">
+						<div class="col-md-4">
 								<div class="panel panel-primary">
 										<div class="panel-heading">
 												<div class="row">
@@ -436,7 +436,7 @@
 						 }
 
 						?>
-						<div class="col-lg-3 col-md-6">
+						<div class="col-md-4">
 								<div class="panel panel-green">
 										<div class="panel-heading">
 												<div class="row">
@@ -471,7 +471,7 @@
 						 }
 
 						?>
-						<div class="col-lg-3 col-md-6">
+						<div class="col-md-4">
 								<div class="panel panel-yellow">
 										<div class="panel-heading">
 												<div class="row">
@@ -494,6 +494,8 @@
 										</a>
 								</div>
 						</div>
+				</div>
+				<div class="row">
 						<?php
 						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 						 $query ="SELECT * FROM alarmas_configuracion ORDER BY id DESC";
@@ -516,6 +518,41 @@
 														<div class="col-xs-9 text-right">
 																<div class="huge"><?php echo $alarmas ?></div>
 																<div>Alertas</div>
+														</div>
+												</div>
+										</div>
+										<a href="Alarmas/alarmas.php">
+												<div class="panel-footer">
+														<span class="pull-left">Ver detalles</span>
+														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+														<div class="clearfix"></div>
+												</div>
+										</a>
+								</div>
+						</div>
+
+						<?php
+						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
+						 $query ="SELECT * FROM alarmas_configuracion ORDER BY id DESC";
+						 $result = mysqli_query($conn, $query)
+						 or die("Error: ".mysqli_error($conn));
+
+						 $alarmas=0;
+						 while($row = mysqli_fetch_array($result)){
+							 $alarmas++;
+						 }
+
+						?>
+						<div class="col-lg-3 col-md-6">
+								<div class="panel panel-red">
+										<div class="panel-heading">
+												<div class="row">
+														<div class="col-xs-3">
+																<i class="fa fa-bell-o fa-5x"></i>
+														</div>
+														<div class="col-xs-9 text-right">
+																<div class="huge"><?php echo $alarmas ?></div>
+																<div>Reportes del Sistema</div>
 														</div>
 												</div>
 										</div>

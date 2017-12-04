@@ -24,15 +24,15 @@
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a href="index.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
+						<a href="index2.php"> <img style="height:51px; width: 100px;" src="css/hub.jpg" alt=""></a>
 					</div>
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="index2.php">Incio</a></li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>   Cerrar Sesión</a></li>
+					</ul>
 				</div>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>   Cerrar Sesión</a></li>
-				</ul>
 			</nav>
 
 			</div>

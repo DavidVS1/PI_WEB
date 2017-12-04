@@ -19,7 +19,7 @@
 		$correo =  $_POST['correo'];
 		$super_usuario =  $_POST['super_usuario'];
   
-			if ($nombre != '' && $clave != '' && $correo != '' && $super_usuario != 0)
+			if ($nombre != '' && $clave != '' && $correo != '')
       {
           try{
 

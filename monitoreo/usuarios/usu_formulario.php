@@ -109,7 +109,7 @@
                 <small>Indique un correo</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="15"  name="correo" class="form-control" value="<?php echo $configuracion_usuario['correo'] ?>"  required>
+                <input type="text" min="1" maxlength="20"  name="correo" class="form-control" value="<?php echo $configuracion_usuario['correo'] ?>"  required>
               </div>
             </div>
             <div class="form-group">

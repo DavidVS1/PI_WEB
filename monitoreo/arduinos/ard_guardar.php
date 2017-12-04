@@ -68,7 +68,7 @@
 	if($response['done'])
 		include 'arduinos.php';
 	else
-		include 'ard_formulario.php';
+		//include 'ard_formulario.php';
 
 	
 ?>

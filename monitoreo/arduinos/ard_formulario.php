@@ -78,11 +78,9 @@
 
             <div class="form-group">
               <div class="col-xs-12 col-md-12">
-                <label for="">ID</label>
-                <small>ID arduinos</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="number" min="1" maxlength="2" name="Id_arduinos" class="form-control" value="<?php echo $configuracion_arduinos['id_arduinos'] ?>"  required>
+                <input type="hidden"  name="id_arduinos" class="form-control" readonly value="<?php echo $configuracion_arduinos['id_arduinos'] ?>">
               </div>
             </div>
               
@@ -92,7 +90,7 @@
                 <small>Indique el nombre de la Estación (Arduino)</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="10" name="Nombre_arduino" class="form-control" value="<?php echo $configuracion_arduinos['nombre_arduino'] ?>"  required>
+                <input type="text" min="1" maxlength="10" name="nombre_arduino" class="form-control" value="<?php echo $configuracion_arduinos['nombre_arduino'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -101,7 +99,7 @@
                 <small>Indique la ubicación del sensor</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="12"  name="Ubicacion" class="form-control" value="<?php echo $configuracion_arduinos['ubicacion'] ?>"  required>
+                <input type="text" min="1" maxlength="12"  name="ubicacion" class="form-control" value="<?php echo $configuracion_arduinos['ubicacion'] ?>"  required>
               </div>
             </div>
             <div class="form-group">
@@ -110,7 +108,7 @@
                 <small>Indique estado de sensor</small>
               </div>
               <div class="col-xs-12 col-md-6">
-                <input type="text" min="1" maxlength="2"  name="Activo" class="form-control" value="<?php echo $configuracion_arduinos['activo'] ?>"  required>
+                <input type="text" min="1" maxlength="2"  name="activo" class="form-control" value="<?php echo $configuracion_arduinos['activo'] ?>"  required>
               </div>
             </div>
             <div class="form-group">

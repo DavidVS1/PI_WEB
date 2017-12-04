@@ -5,10 +5,10 @@
 	);
 
 	if(isset($_POST['guardar'])){
-		$id_arduinos = $_POST['Id_arduinos'];
-		$nombre_arduino =  $_POST['Nombre_arduino'];
-    $ubicacion =  $_POST['Ubicacion'];
-    $activo =  $_POST['Activo'];
+		$id_arduinos = $_POST['id_arduinos'];
+		$nombre_arduino =  $_POST['nombre_arduino'];
+    $ubicacion =  $_POST['ubicacion'];
+    $activo =  $_POST['activo'];
   
 			if ($nombre_arduino != '' && $ubicacion != '' && $activo != '')
       {
@@ -44,21 +44,22 @@
     					if($sql_respuesta)
               {
     						$response['done'] = true;
-    						$response['message'] = 'La alarma se guardó correctamente en el sistema';
+    						$response['message'] = 'La estación se guardó correctamente en el sistema';
     					}
     				}
 
-    			}catch (Exception $e){}
-        }
-        else
-        {
+					}
+					catch (Exception $e){}
+      }
+      else{
           $validacion_datos['done'] = false;
-          $validacion_datos['message'] = 'La alarma no se guardo, el indice superior tiene que ser igual o mayor al indice inferior';
-        }
+          $validacion_datos['message'] = 'Existen campos faltantantes';
+			}
+			
 	}
 	if($response['done'])
 //		header('Location: ../alarmas.php');
 		include 'arduinos.php';
 	else
-		include('ard_formulario.php');
+		include 'ard_formulario.php';
 ?>

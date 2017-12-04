@@ -533,7 +533,7 @@
 
 						<?php
 						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
-						 $query ="SELECT * FROM alarmas_configuracion ORDER BY id DESC";
+						 $query ="SELECT * FROM alarmas ORDER BY id DESC";
 						 $result = mysqli_query($conn, $query)
 						 or die("Error: ".mysqli_error($conn));
 

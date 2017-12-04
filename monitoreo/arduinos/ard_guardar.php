@@ -1,4 +1,12 @@
 <?php
+
+
+
+
+
+
+
+
 	$response = array(
 		'done' => false,
 		'message' => 'No se pudo guardar la configuración de la alarma'
@@ -48,8 +56,8 @@
     					}
     				}
 
-					}
-					catch (Exception $e){}
+				}
+				catch (Exception $e){}
       }
       else{
           $validacion_datos['done'] = false;
@@ -58,8 +66,9 @@
 			
 	}
 	if($response['done'])
-//		header('Location: ../alarmas.php');
 		include 'arduinos.php';
 	else
 		include 'ard_formulario.php';
+
+	
 ?>

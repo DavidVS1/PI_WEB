@@ -56,7 +56,7 @@
 						</nav>
 			</div>
 		
-			<center><i style="font-size:125px"  class="wi wi-time-2"></i>
+			<center><i style="font-size:125px"  class="fa fa-bug"></i>
 				<div id="titulo">
 					<center><h1>Arduinos</h1></center>
 				</div>

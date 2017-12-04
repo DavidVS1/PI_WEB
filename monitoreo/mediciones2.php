@@ -30,6 +30,9 @@
 						<li class="active"><a href="index2.php">Incio</a></li>
 					</ul>
 				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../../cerrar_sesion.php"><span class="glyphicon glyphicon-log-out"></span>   Cerrar Sesión</a></li>
+				</ul>
 			</nav>
 
 			</div>

@@ -373,7 +373,7 @@
 											<a href="arduinos/arduinos.php"><i class = "fa fa-bug"></i> Arduinos</a>
 										</li>
 										<li>
-											<a href="Alertas/alertas.php"><i class = "fa fa-bell-o"></i> Alertas</a>
+											<a href="Alarmas/alarmas.php"><i class = "fa fa-bell-o"></i> Alertas</a>
 										</li>
 										<li>
 											<a href="reportes.php"><i class = "fa fa-bullhorn"></i> Reportes del Sistema</a>

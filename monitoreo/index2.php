@@ -464,7 +464,9 @@
 						 }
 
 						?>
-						<div class ="col-md-2"></div>
+
+					<div class="row">
+						<div class = "col-md-2"></div>
 						<div class="col-lg-8 col-md-8">
 								<div class="panel panel-green">
 										<div class="panel-heading">
@@ -487,7 +489,7 @@
 										</a>
 								</div>
 						</div>
-
+				</div>
 
 				<div class="row">
 					<section style="col-md-2;" >

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$iniciar = false;
-
+	$super_us = 0;
 	try {
 		$conn = new mysqli('localhost', 'simp', 'simpcolima', 'SIMP2');
 
@@ -27,13 +27,20 @@
 				//var_dump($row);	// imprime cada fila para ver la estructura del vector asociativo
 				$_SESSION['bsd1'] = $row;
 				$iniciar = true;
+				$super_us = $row['super_usuario'];
 			}
 			//var_dump($row);
 		}
 	} catch (Exception $e){}
+	
 
 	if($iniciar){
-		header('Location: monitoreo/index.php');
+		if($super_us){
+			header('Location: monitoreo/index.php');
+		}
+		else{
+			header('Location: monitoreo/index2.php');
+		}
 	}else{
 		header('Location: login.php?error=1');
 	}

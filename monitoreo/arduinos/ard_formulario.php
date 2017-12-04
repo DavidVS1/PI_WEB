@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
               <div class="col-xs-12 col-md-6">
-                <button type="submit" name="guardar" value="submit" class="btn btn_enviar btn-success">Guardar</button>
+                <button type="submit" name="guardar" class="btn btn_enviar btn-success">Guardar</button>
               </div>
             </div>
     			</form>

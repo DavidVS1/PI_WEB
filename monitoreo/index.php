@@ -509,7 +509,7 @@
 
 						?>
 						<div class="col-md-6">
-								<div class="panel panel-red">
+								<div class="panel panel-orange">
 										<div class="panel-heading">
 												<div class="row">
 														<div class="col-xs-3">
@@ -548,7 +548,7 @@
 										<div class="panel-heading">
 												<div class="row">
 														<div class="col-xs-3">
-																<i class="fa fa-bell-o fa-5x"></i>
+																<i class="fa fa-bullhorn-o fa-5x"></i>
 														</div>
 														<div class="col-xs-9 text-right">
 																<div class="huge"><?php echo $alarmas ?></div>

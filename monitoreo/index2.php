@@ -322,7 +322,6 @@
 </head>
 
 <body style='background-image: url("css/aaa.jpg");'>
-<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellat dolorum debitis quas nostrum nisi facere maiores velit porro. Ipsa blanditiis minima inventore, suscipit harum iusto quod unde id similique.</h2>
 <div id="wrapper">
   <div class="header">
 		<!-- Navigation -->
@@ -448,46 +447,11 @@
 		<div id="page-wrapper">
 				<div class="row">
 						<div class="col-lg-12">
-								<h3 class="page-header">Administración Principal</h3>
+								<h3 class="page-header">Vista Principal</h3>
 						</div>
 						<!-- /.col-lg-12 -->
 				</div>
-				<?php
-				 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
-				 $query ="SELECT * FROM usuarios ORDER BY id_usuario";
-				 $result = mysqli_query($conn, $query)
-				 or die("Error: ".mysqli_error($conn));
-
-				 $usuarios=0;
-				 while($row = mysqli_fetch_array($result)){
-					 $usuarios++;
-				 }
-
-				?>
-				<!-- /.row -->
-				<div class="row">
-						<div class="col-lg-3 col-md-6">
-								<div class="panel panel-primary">
-										<div class="panel-heading">
-												<div class="row">
-														<div class="col-xs-3">
-																<i class="fa fa-users fa-5x"></i>
-														</div>
-														<div class="col-xs-9 text-right">
-																<div class="huge"><?php echo $usuarios ?></div>
-																<div>Usuarios</div>
-														</div>
-												</div>
-										</div>
-										<a href="usuarios.php">
-												<div class="panel-footer">
-														<span class="pull-left">Ver detalles</span>
-														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-														<div class="clearfix"></div>
-												</div>
-										</a>
-								</div>
-						</div>
+			
 						<?php
 						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
 						 $query ="SELECT nombre_arduino,nombre_sensor,ubicacion,activo,valor,unidad,fecha FROM mediciones join (sensores,arduinos) on (sensores.id_sensores);";
@@ -523,76 +487,6 @@
 								</div>
 						</div>
 
-						<?php
-						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
-						 $query ="SELECT * FROM arduinos ORDER BY id_arduinos DESC";
-						 $result = mysqli_query($conn, $query)
-						 or die("Error: ".mysqli_error($conn));
-
-						 $arduino=0;
-						 while($row = mysqli_fetch_array($result)){
-							 $arduino++;
-						 }
-
-						?>
-						<div class="col-lg-3 col-md-6">
-								<div class="panel panel-yellow">
-										<div class="panel-heading">
-												<div class="row">
-														<div class="col-xs-3">
-
-																<i class="fa fa fa-bug fa-5x"></i>
-														</div>
-														<div class="col-xs-9 text-right">
-																<div class="huge"><?php echo $arduino ?></div>
-																<div>Arduinos</div>
-														</div>
-												</div>
-										</div>
-										<a href="arduinos/arduinos.php">
-												<div class="panel-footer">
-														<span class="pull-left">Ver detalles</span>
-														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-														<div class="clearfix"></div>
-												</div>
-										</a>
-								</div>
-						</div>
-						<?php
-						 $conn = mysqli_connect("localhost","simp","simpcolima","SIMP2");
-						 $query ="SELECT * FROM alarmas_configuracion ORDER BY id DESC";
-						 $result = mysqli_query($conn, $query)
-						 or die("Error: ".mysqli_error($conn));
-
-						 $alarmas=0;
-						 while($row = mysqli_fetch_array($result)){
-							 $alarmas++;
-						 }
-
-						?>
-						<div class="col-lg-3 col-md-6">
-								<div class="panel panel-red">
-										<div class="panel-heading">
-												<div class="row">
-														<div class="col-xs-3">
-																<i class="fa fa-bell-o fa-5x"></i>
-														</div>
-														<div class="col-xs-9 text-right">
-																<div class="huge"><?php echo $alarmas ?></div>
-																<div>Alertas</div>
-														</div>
-												</div>
-										</div>
-										<a href="Alarmas/alarmas.php">
-												<div class="panel-footer">
-														<span class="pull-left">Ver detalles</span>
-														<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-														<div class="clearfix"></div>
-												</div>
-										</a>
-								</div>
-						</div>
-				</div>
 
 				<div class="row">
 					<section style="col-md-2;" >
